@@ -2,6 +2,7 @@ package dao;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.persist.Transactional;
 import models.User;
 import ninja.jpa.UnitOfWork;
 
@@ -30,5 +31,13 @@ public class UserDaoImpl implements UserDao {
     @UnitOfWork
     public List<User> findByUsername(String username) {
         return new ArrayList<>();
+    }
+
+    @Transactional
+    public User create(User user) {
+        EntityManager entityManager = entityManagerProvider.get();
+        entityManager.persist(user);
+
+        return user;
     }
 }

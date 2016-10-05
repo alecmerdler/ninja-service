@@ -34,6 +34,7 @@ public class ApplicationController {
 
     public Result index() {
         User user = new User("Bob", "bob@bob.com");
+        userDao.create(user);
         List<User> users = userDao.findAll();
 
         return Results.json().render(users);

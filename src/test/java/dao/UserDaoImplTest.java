@@ -44,4 +44,9 @@ public class UserDaoImplTest {
     public void testFindByUsername() {
 
     }
+
+    @Test
+    public void testCreateValid() {
+
+    }
 }
