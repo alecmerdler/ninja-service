@@ -16,33 +16,18 @@
 
 package controllers;
 
+import com.google.inject.Singleton;
+import models.User;
 import ninja.Result;
 import ninja.Results;
-
-import com.google.inject.Singleton;
 
 
 @Singleton
 public class ApplicationController {
 
     public Result index() {
+        User user = new User("Bob", "bob@bob.com");
 
-        return Results.html();
-
-    }
-    
-    public Result helloWorldJson() {
-        
-        SimplePojo simplePojo = new SimplePojo();
-        simplePojo.content = "Hello World! Hello Json!";
-
-        return Results.json().render(simplePojo);
-
-    }
-    
-    public static class SimplePojo {
-
-        public String content;
-        
+        return Results.json().render(user);
     }
 }

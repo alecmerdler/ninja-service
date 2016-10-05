@@ -1,4 +1,5 @@
+models/User.class
 conf/Module.class
 conf/Routes.class
-controllers/ApplicationController$SimplePojo.class
+dao/UserManager.class
 controllers/ApplicationController.class
