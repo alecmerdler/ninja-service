@@ -2,14 +2,12 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Created by alec on 10/4/16.
  */
 
 @Entity
-@Table
 public class User {
     @Id
     Long id;

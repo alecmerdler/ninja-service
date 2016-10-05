@@ -40,7 +40,6 @@ public class ApiControllerIntegrationTest extends NinjaTest {
     @Test
     public void testGetIndex() {
         String response = ninjaTestBrowser.makeJsonRequest(getServerAddress());
-        System.out.println(response);
         try {
             List<User> users = objectMapper.readValue(response, List.class);
             assertEquals(0, users.size());

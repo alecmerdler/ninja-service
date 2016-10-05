@@ -29,7 +29,7 @@ public class UserDaoImplTest {
         entityManagerMock = mock(EntityManager.class);
         providerMock = mock(Provider.class);
         queryMock = mock(Query.class);
-        doReturn(queryMock).when(entityManagerMock).createQuery("SELECT x FROM User");
+        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user");
         doReturn(entityManagerMock).when(providerMock).get();
         doReturn(new ArrayList<>()).when(queryMock).getResultList();
         userDao = new UserDaoImpl(providerMock);
