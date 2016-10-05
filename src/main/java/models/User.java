@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
-    
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     Long id;
@@ -20,7 +20,8 @@ public class User {
     private String email;
 
     public User() {
-
+        this.username = "";
+        this.email = "";
     }
 
     public User(String username, String email) {

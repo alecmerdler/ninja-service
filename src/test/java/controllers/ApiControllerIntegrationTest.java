@@ -42,7 +42,7 @@ public class ApiControllerIntegrationTest extends NinjaTest {
         String response = ninjaTestBrowser.makeJsonRequest(getServerAddress());
         try {
             List<User> users = objectMapper.readValue(response, List.class);
-            assertEquals(0, users.size());
+            assertEquals(1, users.size());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
         }

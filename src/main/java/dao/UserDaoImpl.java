@@ -7,6 +7,7 @@ import models.User;
 import ninja.jpa.UnitOfWork;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,12 @@ public class UserDaoImpl implements UserDao {
 
     @UnitOfWork
     public List<User> findByUsername(String username) {
+        EntityManager entityManager = entityManagerProvider.get();
+
+        Query query = entityManager.createQuery("select user from User as user where user.username = :username");
         return new ArrayList<>();
+//                .setParameter("username", username)
+//                .getResultList();
     }
 
     @Transactional

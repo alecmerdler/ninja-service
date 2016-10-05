@@ -1,17 +1,18 @@
 package dao;
 
 import com.google.inject.Provider;
+import models.User;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
-import static org.junit.Assert.*;
 
 /**
  * Created by alec on 10/4/16.
@@ -24,25 +25,46 @@ public class UserDaoImplTest {
     EntityManager entityManagerMock;
     Query queryMock;
 
+    public class FindAll {
+
+    }
+
     @Before
     public void beforeEach() {
         entityManagerMock = mock(EntityManager.class);
         providerMock = mock(Provider.class);
         queryMock = mock(Query.class);
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user");
         doReturn(entityManagerMock).when(providerMock).get();
-        doReturn(new ArrayList<>()).when(queryMock).getResultList();
-        userDao = new UserDaoImpl(providerMock);
     }
 
     @Test
     public void testFindAllNoUsers() {
+        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user");
+        doReturn(new ArrayList<>()).when(queryMock).getResultList();
+        userDao = new UserDaoImpl(providerMock);
+
         assertEquals(0, userDao.findAll().size());
     }
 
     @Test
-    public void testFindByUsername() {
+    public void testFindAllSomeUsers() {
+        List<User> users = new ArrayList<>();
+        users.add(new User());
+        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user");
+        doReturn(users).when(queryMock).getResultList();
+        userDao = new UserDaoImpl(providerMock);
 
+        assertEquals(users.size(), userDao.findAll().size());
+    }
+
+    @Test
+    public void testFindByUsernameNoUsers() {
+        User user = new User();
+        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
+        doReturn(new ArrayList<>()).when(queryMock).getResultList();
+        userDao = new UserDaoImpl(providerMock);
+
+        assertEquals(0, userDao.findByUsername("bob").size());
     }
 
     @Test
