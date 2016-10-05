@@ -24,9 +24,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class ApiControllerIntegrationTest extends NinjaTest {
@@ -40,9 +40,10 @@ public class ApiControllerIntegrationTest extends NinjaTest {
     @Test
     public void testGetIndex() {
         String response = ninjaTestBrowser.makeJsonRequest(getServerAddress());
+        System.out.println(response);
         try {
-            User user = objectMapper.readValue(response, User.class);
-            assertThat(user.getUsername(), equalTo("Bob"));
+            List<User> users = objectMapper.readValue(response, List.class);
+            assertEquals(0, users.size());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
         }

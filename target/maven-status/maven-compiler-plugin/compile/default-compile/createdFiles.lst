@@ -1,5 +1,6 @@
 models/User.class
 conf/Module.class
 conf/Routes.class
-dao/UserManager.class
+dao/UserDaoImpl.class
 controllers/ApplicationController.class
+dao/UserDao.class

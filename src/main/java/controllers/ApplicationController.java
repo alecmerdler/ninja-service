@@ -16,18 +16,26 @@
 
 package controllers;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import dao.UserDao;
 import models.User;
 import ninja.Result;
 import ninja.Results;
+
+import java.util.List;
 
 
 @Singleton
 public class ApplicationController {
 
+    @Inject
+    private UserDao userDao;
+
     public Result index() {
         User user = new User("Bob", "bob@bob.com");
+        List<User> users = userDao.findAll();
 
-        return Results.json().render(user);
+        return Results.json().render(users);
     }
 }
