@@ -1,7 +1,7 @@
 package models;
 
 import com.google.inject.Inject;
-import dao.UserDao;
+import dao.Dao;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,15 +27,15 @@ public class User extends Model {
     }
 
     @Inject
-    public User(UserDao userDao) {
-        super(userDao);
+    public User(Dao dao) {
+        super(dao);
         this.username = "";
         this.email = "";
     }
 
     @Inject
-    public User(UserDao userDao, String username, String email) {
-        super(userDao);
+    public User(Dao dao, String username, String email) {
+        super(dao);
         this.username = username;
         this.email = email;
     }

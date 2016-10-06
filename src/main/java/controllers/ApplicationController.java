@@ -18,7 +18,7 @@ package controllers;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import dao.UserDao;
+import dao.Dao;
 import models.User;
 import ninja.Result;
 import ninja.Results;
@@ -30,12 +30,12 @@ import java.util.List;
 public class ApplicationController {
 
     @Inject
-    private UserDao userDao;
+    private Dao userDao;
 
     public Result index() {
         User user = new User(userDao, "Bob", "bob@bob.com");
-        userDao.create(user);
-        List<User> users = userDao.findAll();
+        User.getManager().create(user);
+        List<User> users = User.getManager().findAll();
 
         return Results.json().render(users);
     }

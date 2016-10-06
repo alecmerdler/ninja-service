@@ -9,7 +9,7 @@ import javax.persistence.Transient;
  */
 public class Model {
     @Transient
-    private Dao manager;
+    private static Dao manager;
 
     public Model() {
 
@@ -19,7 +19,7 @@ public class Model {
         this.manager = dao;
     }
 
-    public static void hello() {
-        System.out.println("hello");
+    public static Dao getManager() {
+        return manager;
     }
 }
