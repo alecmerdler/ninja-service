@@ -36,7 +36,7 @@ public class UserDaoImplTest {
 
     @Test
     public void testFindAllNoUsers() {
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user");
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t");
         doReturn(new ArrayList<>()).when(queryMock).getResultList();
         userDao = new UserDao(providerMock);
 
@@ -47,7 +47,7 @@ public class UserDaoImplTest {
     public void testFindAllSomeUsers() {
         List<User> users = new ArrayList<>();
         users.add(new User());
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user");
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t");
         doReturn(users).when(queryMock).getResultList();
         userDao = new UserDao(providerMock);
 

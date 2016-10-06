@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class BaseDao<T extends Model> implements Dao<T> {
 
-    private Provider<EntityManager> entityManagerProvider;
+    protected Provider<EntityManager> entityManagerProvider;
     protected String modelName;
 
     @Inject
