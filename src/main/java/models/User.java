@@ -1,5 +1,8 @@
 package models;
 
+import com.google.inject.Inject;
+import dao.UserDao;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +13,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class User {
+public class User extends Model {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
@@ -20,11 +23,19 @@ public class User {
     private String email;
 
     public User() {
+
+    }
+
+    @Inject
+    public User(UserDao userDao) {
+        super(userDao);
         this.username = "";
         this.email = "";
     }
 
-    public User(String username, String email) {
+    @Inject
+    public User(UserDao userDao, String username, String email) {
+        super(userDao);
         this.username = username;
         this.email = email;
     }

@@ -33,7 +33,7 @@ public class ApplicationController {
     private UserDao userDao;
 
     public Result index() {
-        User user = new User("Bob", "bob@bob.com");
+        User user = new User(userDao, "Bob", "bob@bob.com");
         userDao.create(user);
         List<User> users = userDao.findAll();
 
