@@ -30,12 +30,12 @@ import java.util.List;
 public class ApplicationController {
 
     @Inject
-    private Dao userDao;
+    Dao userDao;
 
     public Result index() {
-        User user = new User(userDao, "Bob", "bob@bob.com");
-        User.getManager().create(user);
-        List<User> users = User.getManager().findAll();
+        User user = new User("Bob", "bob@bob.com");
+        userDao.create(user);
+        List<User> users = userDao.findAll();
 
         return Results.json().render(users);
     }
