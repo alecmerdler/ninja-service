@@ -55,6 +55,21 @@ public class UserDaoImplTest {
     }
 
     @Test
+    public void testFindByUsernameNoUsers() {
+
+    }
+
+    @Test
+    public void testFindByUsernameManyUsers() {
+
+    }
+
+    @Test
+    public void findByUsernameOneUser() {
+
+    }
+
+    @Test
     public void testCreateValid() {
 
     }
