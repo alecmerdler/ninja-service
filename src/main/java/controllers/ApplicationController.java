@@ -18,10 +18,10 @@ package controllers;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import dao.Dao;
 import models.User;
 import ninja.Result;
 import ninja.Results;
+import services.UserService;
 
 import java.util.List;
 
@@ -29,17 +29,17 @@ import java.util.List;
 @Singleton
 public class ApplicationController {
 
-    private final Dao userDao;
+    private final UserService userService;
 
     @Inject
-    public ApplicationController(Dao dao) {
-        this.userDao = dao;
+    public ApplicationController(UserService userService) {
+        this.userService = userService;
     }
 
     public Result index() {
         User user = new User("Bob", "bob@bob.com");
-        userDao.create(user);
-        List<User> users = userDao.findAll();
+        userService.createUser(user);
+        List<User> users = userService.listAllUsers();
 
         return Results.json().render(users);
     }

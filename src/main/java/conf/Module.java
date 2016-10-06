@@ -20,12 +20,15 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import dao.Dao;
 import dao.UserDao;
+import services.UserService;
+import services.UserServiceImpl;
 
 @Singleton
 public class Module extends AbstractModule {
 
     protected void configure() {
         bind(Dao.class).to(UserDao.class);
+        bind(UserService.class).to(UserServiceImpl.class);
     }
 
 }
