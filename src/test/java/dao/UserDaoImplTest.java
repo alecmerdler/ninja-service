@@ -6,11 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.*;
 
 /**
@@ -92,5 +95,15 @@ public class UserDaoImplTest {
 
         assertEquals(user, userDao.create(user));
         verify(entityManagerMock).persist(user);
+    }
+
+    @Test
+    public void testCreateInvalidThrowsPersistenceException() {
+        try {
+            userDao.create(null);
+            fail("Should throw exception");
+        } catch (Exception e) {
+            assertTrue(e instanceof PersistenceException);
+        }
     }
 }

@@ -29,8 +29,12 @@ import java.util.List;
 @Singleton
 public class ApplicationController {
 
+    private final Dao userDao;
+
     @Inject
-    Dao userDao;
+    public ApplicationController(Dao dao) {
+        this.userDao = dao;
+    }
 
     public Result index() {
         User user = new User("Bob", "bob@bob.com");
