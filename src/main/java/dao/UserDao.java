@@ -15,8 +15,7 @@ public class UserDao extends BaseDao<User> {
 
     @Inject
     public UserDao(Provider<EntityManager> entityManagerProvider) {
-        super(entityManagerProvider);
-        this.modelName = User.class.getSimpleName();
+        super(entityManagerProvider, User.class.getSimpleName());
     }
 
     @UnitOfWork
