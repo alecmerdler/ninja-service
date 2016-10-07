@@ -22,7 +22,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     @UnitOfWork
     public List<User> findByUsername(String username) {
-       return queryFindAllByUsername(username);
+       return super.findByProperty("username", username);
     }
 
     @Transactional
@@ -30,18 +30,10 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         if (user == null) {
             throw new PersistenceException("Model should not be null");
         }
-        else if (queryFindAllByUsername(user.getUsername()).size() > 0) {
+        else if (super.findByProperty("username", user.getUsername()).size() > 0) {
             throw new PersistenceException("User with given username already exists");
         }
 
         return super.create(user);
-    }
-
-    private List<User> queryFindAllByUsername(String username) {
-        EntityManager entityManager = entityManagerProvider.get();
-
-        return entityManager.createQuery("select user from User as user where user.username = :username")
-                .setParameter("username", username)
-                .getResultList();
     }
 }

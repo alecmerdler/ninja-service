@@ -8,6 +8,7 @@ import ninja.jpa.UnitOfWork;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -27,9 +28,18 @@ public class BaseDao<T extends Model> implements Dao<T> {
     @UnitOfWork
     public List<T> findAll() {
         EntityManager entityManager = entityManagerProvider.get();
-        String queryString = "select t from " + modelName + " as t";
 
-        return entityManager.createQuery(queryString).getResultList();
+        return entityManager.createQuery("select t from " + modelName + " as t")
+                .getResultList();
+    }
+
+    @UnitOfWork
+    public List<T> findByProperty(String property, String value) {
+        EntityManager entityManager = entityManagerProvider.get();
+
+        Query query = entityManager.createQuery("select t from " + modelName + " as t where t." + property + " = :value")
+                .setParameter("value", value);
+        return query.getResultList();
     }
 
     @Transactional

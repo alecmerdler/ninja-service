@@ -17,9 +17,12 @@
 package controllers;
 
 
+import com.google.inject.Injector;
+import dao.UserDao;
 import models.User;
 import ninja.NinjaTest;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,12 +34,16 @@ import static org.junit.Assert.fail;
 
 public class ApplicationControllerIntegrationTest extends NinjaTest {
 
+    UserDao userDao;
     ObjectMapper objectMapper;
     String apiUrl;
     String usersUrl;
 
     @Before
     public void beforeEach() {
+        Injector injector = getInjector();
+
+        userDao = injector.getInstance(UserDao.class);
         objectMapper = new ObjectMapper();
         apiUrl = getServerAddress() + "api/v1";
         usersUrl = apiUrl + "/users";
@@ -53,6 +60,32 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         try {
             List<User> users = objectMapper.readValue(response, List.class);
             assertEquals(0, users.size());
+        } catch (IOException ioe) {
+            fail(ioe.getMessage());
+        }
+    }
+
+    @Test
+    public void testListUsersParamUsernameExists() {
+        User user = new User("bob", "bob@gmail.com");
+        userDao.create(user);
+        String response = ninjaTestBrowser.makeJsonRequest(usersUrl + "?username=" + user.getUsername());
+        try {
+            List<User> usersWithSameUsername = objectMapper.readValue(response, new TypeReference<List<User>>(){});
+            assertEquals(1, usersWithSameUsername.size());
+            assertEquals(user.getEmail(), usersWithSameUsername.get(0).getEmail());
+        } catch (IOException ioe) {
+            fail(ioe.getMessage());
+        }
+    }
+
+    @Test
+    public void testListUsersParamUsernameDoesNotExist() {
+        String username = "stanley";
+        String response = ninjaTestBrowser.makeJsonRequest(usersUrl + "?username=" + username);
+        try {
+            List<User> usersWithSameUsername = objectMapper.readValue(response, new TypeReference<List<User>>(){});
+            assertEquals(0, usersWithSameUsername.size());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
         }

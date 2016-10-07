@@ -22,9 +22,12 @@ import models.User;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
+import ninja.params.Param;
 import services.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Singleton
@@ -37,8 +40,18 @@ public class ApplicationController {
         this.userService = userService;
     }
 
-    public Result listUsers() {
-        List<User> users = userService.listAllUsers();
+    public Result listUsers(@Param("username") String username) {
+        List<User> users = new ArrayList<>();
+
+        if (username != null) {
+            Optional<User> userOptional = userService.retrieveUserByUsername(username);
+            if (userOptional.isPresent()) {
+                users.add(userOptional.get());
+            }
+        }
+        else {
+            users = userService.listAllUsers();
+        }
 
         return Results.json().render(users);
     }

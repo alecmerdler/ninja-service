@@ -58,8 +58,8 @@ public class UserDaoImplTest {
     @Test
     public void testFindByUsernameNoUsers() {
         String username = "bob";
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
-        doReturn(queryMock).when(queryMock).setParameter("username", username);
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.username = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", username);
         doReturn(new ArrayList<>()).when(queryMock).getResultList();
 
         assertEquals(0, userDao.findByUsername(username).size());
@@ -68,10 +68,10 @@ public class UserDaoImplTest {
     @Test
     public void testFindByUsernameManyUsers() {
         List<User> users = new ArrayList<>();
-        users.add(new User());
+        users.add(new User("bob", "bob@gmail.com"));
         users.add(new User("sally", "sally@gmail.com"));
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
-        doReturn(queryMock).when(queryMock).setParameter("username", users.get(0).getUsername());
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.username = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", users.get(0).getUsername());
         doReturn(users).when(queryMock).getResultList();
 
         assertEquals(users.size(), userDao.findByUsername(users.get(0).getUsername()).size());
@@ -80,9 +80,9 @@ public class UserDaoImplTest {
     @Test
     public void findByUsernameOneUser() {
         List<User> users = new ArrayList<>();
-        users.add(new User());
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
-        doReturn(queryMock).when(queryMock).setParameter("username", users.get(0).getUsername());
+        users.add(new User("bob", "bob@gmail.com"));
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.username = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", users.get(0).getUsername());
         doReturn(users).when(queryMock).getResultList();
 
         assertEquals(users.size(), userDao.findByUsername(users.get(0).getUsername()).size());
@@ -93,8 +93,8 @@ public class UserDaoImplTest {
         User user = new User("bob", "bob@gmail.com");
         doNothing().when(entityManagerMock).persist(user);
         doReturn(new ArrayList<>()).when(queryMock).getResultList();
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
-        doReturn(queryMock).when(queryMock).setParameter("username", user.getUsername());
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.username = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", user.getUsername());
 
         assertEquals(user, userDao.create(user));
         verify(entityManagerMock).persist(user);
@@ -118,8 +118,8 @@ public class UserDaoImplTest {
         User secondUser = new User(username, "bob@gmail.com");
         usersWithSameUsername.add(secondUser);
         doReturn(new ArrayList<>()).doReturn(usersWithSameUsername).when(queryMock).getResultList();
-        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
-        doReturn(queryMock).when(queryMock).setParameter("username", username);
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.username = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", username);
 
         try {
             userDao.create(firstUser);
