@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eba78f-a1e3-45a3-b5cb-ea9e8f2f4401" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ninja-service.iml" afterPath="$PROJECT_DIR$/ninja-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conf/Module.java" afterPath="$PROJECT_DIR$/src/main/java/conf/Module.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
     </list>
     <ignored path="ninja-service.iws" />
@@ -52,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="661">
-              <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserService.java" />
         <option value="$PROJECT_DIR$/src/test/java/controllers/ApiControllerDocTesterTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserManager.java" />
@@ -159,6 +148,7 @@
         <option value="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -1349,7 +1339,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475626130200</updated>
-      <workItem from="1475626131897" duration="74094000" />
+      <workItem from="1475626131897" duration="74353000" />
     </task>
     <servers />
   </component>
@@ -1386,7 +1376,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74094000" />
+    <option name="totallyTimeSpent" value="74353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-29" width="1600" height="929" extended-state="6" />
@@ -1448,14 +1438,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/views/layout/defaultLayout.ftl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1788,10 +1770,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="661">
-          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
