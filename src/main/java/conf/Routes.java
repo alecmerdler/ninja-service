@@ -35,10 +35,9 @@ public class Routes implements ApplicationRoutes {
 
         router.GET().route(usersUrl).with(ApplicationController.class, "listUsers");
         router.POST().route(usersUrl).with(ApplicationController.class, "createUser");
+        router.GET().route(usersUrl + "/{id}").with(ApplicationController.class, "retrieveUser");
 
-        ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
-        ///////////////////////////////////////////////////////////////////////
         router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");
         router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
     }

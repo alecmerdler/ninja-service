@@ -28,6 +28,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -42,7 +43,6 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     @Before
     public void beforeEach() {
         Injector injector = getInjector();
-
         userDao = injector.getInstance(UserDao.class);
         objectMapper = new ObjectMapper();
         apiUrl = getServerAddress() + "api/v1";
@@ -58,7 +58,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     public void testListUsers() {
         String response = ninjaTestBrowser.makeJsonRequest(usersUrl);
         try {
-            List<User> users = objectMapper.readValue(response, List.class);
+            List<User> users = objectMapper.readValue(response, new TypeReference<List<User>>(){});
             assertEquals(0, users.size());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
@@ -104,7 +104,19 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     }
 
     @Test
-    public void testRetrieveUser() {
+    public void testRetrieveUserDoesNotExist() {
+        int id = 42;
+        String response = ninjaTestBrowser.makeJsonRequest(usersUrl + "/" + id);
+        try {
+            Map<String, String> responseMap = objectMapper.readValue(response, new TypeReference<Map<String, String>>(){});
+            assertEquals("User with given ID does not exist", responseMap.get("error"));
+        } catch (IOException ioe) {
+            fail(ioe.getMessage());
+        }
+    }
+
+    @Test
+    public void testRetrieveUserExists() {
 
     }
 

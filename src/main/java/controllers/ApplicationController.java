@@ -22,7 +22,9 @@ import models.User;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
+import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
+import ninja.params.PathParam;
 import services.UserService;
 
 import java.util.ArrayList;
@@ -58,6 +60,20 @@ public class ApplicationController {
 
     public Result createUser(Context context, User user) {
         userService.createUser(user);
+
+        return Results.json().render(user);
+    }
+
+    public Result retrieveUser(@PathParam("id") int id) {
+        User user;
+
+        Optional<User> userOptional = userService.retrieveUserById(id);
+        if (userOptional.isPresent()) {
+            user = userOptional.get();
+        }
+        else {
+            throw new BadRequestException("User with given ID does not exist");
+        }
 
         return Results.json().render(user);
     }
