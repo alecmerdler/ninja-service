@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
-    public User createUser(User user) {
+    public User createUser(User user) throws ServiceException {
         if (user == null) {
             throw new ServiceException("User should not be null");
         }

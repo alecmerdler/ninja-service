@@ -1,6 +1,7 @@
 package services;
 
 import models.User;
+import org.hibernate.service.spi.ServiceException;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ public interface UserService {
 
     List<User> listAllUsers();
 
-    User createUser(User user);
+    User createUser(User user) throws ServiceException;
 }

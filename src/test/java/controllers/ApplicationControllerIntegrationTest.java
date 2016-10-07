@@ -29,23 +29,59 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class ApiControllerIntegrationTest extends NinjaTest {
+public class ApplicationControllerIntegrationTest extends NinjaTest {
 
     ObjectMapper objectMapper;
+    String apiUrl;
+    String usersUrl;
 
     @Before
     public void beforeEach() {
         objectMapper = new ObjectMapper();
+        apiUrl = getServerAddress() + "api/v1";
+        usersUrl = apiUrl + "/users";
     }
 
     @Test
-    public void testGetIndex() {
+    public void testRootGET() {
         String response = ninjaTestBrowser.makeJsonRequest(getServerAddress());
+    }
+
+    @Test
+    public void testListUsers() {
+        String response = ninjaTestBrowser.makeJsonRequest(usersUrl);
         try {
             List<User> users = objectMapper.readValue(response, List.class);
-            assertEquals(1, users.size());
+            assertEquals(0, users.size());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
         }
+    }
+
+    @Test
+    public void testCreateUser() {
+        User user = new User("bob", "bob@bob.com");
+        String response = ninjaTestBrowser.postJson(usersUrl, user);
+        try {
+            User createdUser = objectMapper.readValue(response, User.class);
+            assertEquals(user.getUsername(), createdUser.getUsername());
+        } catch (IOException ioe) {
+            fail(ioe.getMessage());
+        }
+    }
+
+    @Test
+    public void testRetrieveUser() {
+
+    }
+
+    @Test
+    public void testUpdateUser() {
+
+    }
+
+    @Test
+    public void testDestroyUser() {
+
     }
 }

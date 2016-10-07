@@ -17,28 +17,30 @@
 package conf;
 
 
+import controllers.ApplicationController;
 import ninja.AssetsController;
+import ninja.Results;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
-import controllers.ApplicationController;
 
 public class Routes implements ApplicationRoutes {
+
+    private String apiUrl = "/api/v1";
+    private String usersUrl = apiUrl + "/users";
 
     @Override
     public void init(Router router) {
 
-        router.GET().route("/").with(ApplicationController.class, "index");
+        router.GET().route("/").with(Results.json().render("status", "running"));
+
+        router.GET().route(usersUrl).with(ApplicationController.class, "listUsers");
+        router.POST().route(usersUrl).with(ApplicationController.class, "createUser");
 
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
         ///////////////////////////////////////////////////////////////////////
         router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");
         router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
-
-        ///////////////////////////////////////////////////////////////////////
-        // Index / Catchall shows index page
-        ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/.*").with(ApplicationController.class, "index");
     }
 
 }

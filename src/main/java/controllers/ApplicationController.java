@@ -19,6 +19,7 @@ package controllers;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import models.User;
+import ninja.Context;
 import ninja.Result;
 import ninja.Results;
 import services.UserService;
@@ -36,11 +37,15 @@ public class ApplicationController {
         this.userService = userService;
     }
 
-    public Result index() {
-        User user = new User("Bob", "bob@bob.com");
-        userService.createUser(user);
+    public Result listUsers() {
         List<User> users = userService.listAllUsers();
 
         return Results.json().render(users);
+    }
+
+    public Result createUser(Context context, User user) {
+        userService.createUser(user);
+
+        return Results.json().render(user);
     }
 }
