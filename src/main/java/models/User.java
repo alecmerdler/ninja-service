@@ -2,10 +2,7 @@ package models;
 
 import com.google.inject.Inject;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by alec on 10/4/16.
@@ -18,7 +15,10 @@ public class User extends Model {
     @Id
     Long id;
 
+    @Column(unique = true)
     private String username;
+
+    @Column(unique = true)
     private String email;
 
     @Inject

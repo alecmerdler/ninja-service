@@ -90,17 +90,40 @@ public class UserDaoImplTest {
 
     @Test
     public void testCreateValid() {
-        User user = new User();
+        User user = new User("bob", "bob@gmail.com");
         doNothing().when(entityManagerMock).persist(user);
+        doReturn(new ArrayList<>()).when(queryMock).getResultList();
+        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
+        doReturn(queryMock).when(queryMock).setParameter("username", user.getUsername());
 
         assertEquals(user, userDao.create(user));
         verify(entityManagerMock).persist(user);
     }
 
     @Test
-    public void testCreateInvalidThrowsPersistenceException() {
+    public void testCreateNull() {
         try {
             userDao.create(null);
+            fail("Should throw exception");
+        } catch (Exception e) {
+            assertTrue(e instanceof PersistenceException);
+        }
+    }
+
+    @Test
+    public void testCreateUsernameAlreadyExists() {
+        List<User> usersWithSameUsername = new ArrayList<>();
+        String username = "bob";
+        User firstUser = new User(username, "bob@bob.com");
+        User secondUser = new User(username, "bob@gmail.com");
+        usersWithSameUsername.add(secondUser);
+        doReturn(new ArrayList<>()).doReturn(usersWithSameUsername).when(queryMock).getResultList();
+        doReturn(queryMock).when(entityManagerMock).createQuery("select user from User as user where user.username = :username");
+        doReturn(queryMock).when(queryMock).setParameter("username", username);
+
+        try {
+            userDao.create(firstUser);
+            userDao.create(secondUser);
             fail("Should throw exception");
         } catch (Exception e) {
             assertTrue(e instanceof PersistenceException);

@@ -35,4 +35,12 @@ public class UserServiceImpl implements UserService {
             throw new ServiceException("Could not persist given User");
         }
     }
+
+    public User retrieveUserById(int id) {
+        return null;
+    }
+
+    public User retrieveUserByUsername(String username) {
+        return null;
+    }
 }

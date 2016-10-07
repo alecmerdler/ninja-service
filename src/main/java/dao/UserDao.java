@@ -2,10 +2,12 @@ package dao;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.persist.Transactional;
 import models.User;
 import ninja.jpa.UnitOfWork;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
@@ -20,6 +22,20 @@ public class UserDao extends BaseDao<User> {
 
     @UnitOfWork
     public List<User> findByUsername(String username) {
+       return queryFindAllByUsername(username);
+    }
+
+    @Transactional
+    public User create(User user) throws PersistenceException {
+        EntityManager entityManager = entityManagerProvider.get();
+
+        if (queryFindAllByUsername(user.getUsername()).size() > 0) {
+            throw new PersistenceException("User with given username already exists");
+        }
+        return super.create(user);
+    }
+
+    private List<User> queryFindAllByUsername(String username) {
         EntityManager entityManager = entityManagerProvider.get();
 
         return entityManager.createQuery("select user from User as user where user.username = :username")
