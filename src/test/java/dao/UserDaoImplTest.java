@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
  * Created by alec on 10/4/16.
  */
 public class UserDaoImplTest {
-    UserDao userDao;
+    UserDaoImpl userDao;
 
     // Mocks
     Provider<EntityManager> providerMock;
@@ -34,7 +34,7 @@ public class UserDaoImplTest {
         providerMock = mock(Provider.class);
         queryMock = mock(Query.class);
         doReturn(entityManagerMock).when(providerMock).get();
-        userDao = new UserDao(providerMock);
+        userDao = new UserDaoImpl(providerMock);
     }
 
     @Test

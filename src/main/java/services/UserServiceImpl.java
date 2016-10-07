@@ -1,22 +1,26 @@
 package services;
 
 import com.google.inject.Inject;
-import dao.Dao;
+import dao.UserDao;
 import models.User;
 import org.hibernate.service.spi.ServiceException;
 
 import javax.persistence.PersistenceException;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Optional.empty;
+import static java.util.Optional.ofNullable;
 
 /**
  * Created by alec on 10/6/16.
  */
 public class UserServiceImpl implements UserService {
 
-    private final Dao userDao;
+    private final UserDao userDao;
 
     @Inject
-    public UserServiceImpl(Dao userDao) {
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
@@ -28,7 +32,6 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new ServiceException("User should not be null");
         }
-
         try {
             return (User) userDao.create(user);
         } catch (PersistenceException pe) {
@@ -36,11 +39,17 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public User retrieveUserById(int id) {
-        return null;
+    public Optional<User> retrieveUserById(int id) {
+        return empty();
     }
 
-    public User retrieveUserByUsername(String username) {
-        return null;
+    public Optional<User> retrieveUserByUsername(String username) {
+        List<User> usersWithUsername = userDao.findByUsername(username);
+        User user = null;
+        if (usersWithUsername.size() > 0) {
+            user = usersWithUsername.get(0);
+        }
+
+        return ofNullable(user);
     }
 }

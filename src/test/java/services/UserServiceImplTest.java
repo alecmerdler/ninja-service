@@ -1,6 +1,5 @@
 package services;
 
-import dao.Dao;
 import dao.UserDao;
 import models.User;
 import org.hibernate.service.spi.ServiceException;
@@ -10,12 +9,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by alec on 10/6/16.
@@ -24,7 +19,7 @@ public class UserServiceImplTest {
     UserServiceImpl userService;
 
     // Mocks
-    Dao userDaoMock;
+    UserDao userDaoMock;
 
     @Before
     public void beforeEach() {
@@ -71,5 +66,20 @@ public class UserServiceImplTest {
         } catch (Exception e) {
             assertTrue(e instanceof ServiceException);
         }
+    }
+
+    @Test
+    public void testRetrieveUserByUsernameDoesNotExist() {
+        String username = "bob";
+        doReturn(new ArrayList<>()).when(userDaoMock).findByUsername(username);
+        userService = new UserServiceImpl(userDaoMock);
+
+        assertFalse(userService.retrieveUserByUsername(username).isPresent());
+        verify(userDaoMock).findByUsername(username);
+    }
+
+    @Test
+    public void testRetrieveUserByUsernameExists() {
+        
     }
 }

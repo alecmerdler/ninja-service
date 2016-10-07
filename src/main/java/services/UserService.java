@@ -4,6 +4,7 @@ import models.User;
 import org.hibernate.service.spi.ServiceException;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by alec on 10/6/16.
@@ -14,7 +15,7 @@ public interface UserService {
 
     User createUser(User user) throws ServiceException;
 
-    User retrieveUserById(int id) throws ServiceException;
+    Optional<User> retrieveUserById(int id) throws ServiceException;
 
-    User retrieveUserByUsername(String username) throws ServiceException;
+    Optional<User> retrieveUserByUsername(String username) throws ServiceException;
 }
