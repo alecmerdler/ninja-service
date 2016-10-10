@@ -39,7 +39,7 @@ public class BaseDaoTest {
         providerMock = mock(Provider.class);
         queryMock = mock(Query.class);
         doReturn(entityManagerMock).when(providerMock).get();
-        baseDao = new BaseDao(providerMock, modelMock.getClass().getSimpleName());
+        baseDao = new BaseDao(providerMock, modelMock.getClass().getSimpleName(), modelMock.getClass());
     }
 
     @Test

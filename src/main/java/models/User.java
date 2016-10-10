@@ -11,10 +11,6 @@ import javax.persistence.*;
 @Entity
 public class User extends Model {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Id
-    private Long id;
-
     @Column(unique = true)
     private String username;
 
@@ -31,10 +27,6 @@ public class User extends Model {
     public User(String username, String email) {
         this.username = username;
         this.email = email;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getUsername() {

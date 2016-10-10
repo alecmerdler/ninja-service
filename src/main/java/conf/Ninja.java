@@ -12,6 +12,8 @@ public class Ninja extends NinjaDefault {
 
     @Override
     public Result getBadRequestResult(Context context, Exception exception) {
-        return Results.json().render("error", exception.getMessage());
+        return Results.json()
+                .render("error", exception.getMessage())
+                .status(400);
     }
 }

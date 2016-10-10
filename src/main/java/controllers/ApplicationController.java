@@ -30,6 +30,8 @@ import services.UserService;
 
 import java.util.*;
 
+import static ninja.Results.json;
+
 
 @Singleton
 public class ApplicationController {
@@ -54,7 +56,7 @@ public class ApplicationController {
             users = userService.listAllUsers();
         }
 
-        return Results.json().render(users);
+        return json().render(users);
     }
 
     public Result createUser(Context context, User user) {
@@ -65,7 +67,7 @@ public class ApplicationController {
         }
 
 
-        return Results.json().render(user);
+        return json().render(user);
     }
 
     public Result retrieveUser(@PathParam("id") int id) {
@@ -79,22 +81,26 @@ public class ApplicationController {
             throw new BadRequestException("User with given ID does not exist");
         }
 
-        return Results.json().render(user);
+        return json().render(user);
     }
 
-    public Result destroyUser(@PathParam("id") int id) {
-
-        Optional<User> userOptional = userService.retrieveUserById(id);
+    public Result destroyUser(@PathParam("username") String username) {
+        Optional<User> userOptional = userService.retrieveUserByUsername(username);
         if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            userService.destroyUser(user);
+            try {
+                User user = userOptional.get();
+                userService.destroyUser(user);
+            } catch (ServiceException se) {
+                throw new BadRequestException(se.getMessage());
+            }
         }
         else {
-            throw new BadRequestException("User with given ID does not exist");
+            throw new BadRequestException("User with given username does not exist");
         }
 
-        return Results.json()
-                .render("status", "resource removed")
-                .status(204);
+        Result result = Results.json()
+                .status(204)
+                .render("status", "resource removed");
+        return result;
     }
 }

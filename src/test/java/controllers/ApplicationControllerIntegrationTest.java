@@ -18,7 +18,10 @@ package controllers;
 
 
 import com.google.inject.Injector;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import dao.UserDao;
 import models.User;
 import ninja.NinjaTest;
@@ -127,9 +130,16 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     }
 
     @Test
-    public void testDestroyUser() {
+    public void testDestroyUserExists() {
         User user = new User("bob", "bob@gmail.com");
         userDao.create(user);
-        Unirest.delete(usersUrl + "/" + user.getId());
+        try {
+            HttpResponse<JsonNode> response = Unirest.delete(usersUrl + "/" + user.getUsername())
+                    .asJson();
+//            assertEquals(204, response.getStatus());
+            assertEquals(1, response.getBody().toString());
+        } catch (UnirestException ue) {
+            fail(ue.getMessage());
+        }
     }
 }

@@ -18,11 +18,14 @@ public class BaseDao<T extends Model> implements Dao<T> {
 
     protected Provider<EntityManager> entityManagerProvider;
     protected String modelName;
+    protected Class entityType;
 
     @Inject
-    public BaseDao(Provider<EntityManager> entityManagerProvider, String modelName) {
+    public BaseDao(Provider<EntityManager> entityManagerProvider, String modelName, Class entityType) {
         this.entityManagerProvider = entityManagerProvider;
         this.modelName = modelName;
+        // Get the generic class type at runtime: http://blog.xebia.com/acessing-generic-types-at-runtime-in-java/
+        this.entityType = entityType;
     }
 
     @UnitOfWork
@@ -70,7 +73,8 @@ public class BaseDao<T extends Model> implements Dao<T> {
             throw new PersistenceException("Model should not be null");
         }
         EntityManager entityManager = entityManagerProvider.get();
-        entityManager.remove(model);
+        T entity = (T) entityManager.find(entityType, new Long(model.getId()));
+        entityManager.remove(entity);
         entityManager.flush();
 
         return true;

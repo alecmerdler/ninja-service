@@ -17,7 +17,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     @Inject
     public UserDaoImpl(Provider<EntityManager> entityManagerProvider) {
-        super(entityManagerProvider, User.class.getSimpleName());
+        super(entityManagerProvider, User.class.getSimpleName(), User.class);
     }
 
     @UnitOfWork
