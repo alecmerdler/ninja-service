@@ -151,14 +151,6 @@
           <groupId>org.fluentlenium</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>httpclient</artifactId>
-          <groupId>org.apache.httpcomponents</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>httpmime</artifactId>
-          <groupId>org.apache.httpcomponents</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>doctester-core</artifactId>
           <groupId>org.doctester</groupId>
         </exclusion>

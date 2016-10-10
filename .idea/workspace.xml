@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eba78f-a1e3-45a3-b5cb-ea9e8f2f4401" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mashape_unirest_unirest_java_1_4_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160212.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ninja-service.iml" afterPath="$PROJECT_DIR$/ninja-service.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conf/Routes.java" afterPath="$PROJECT_DIR$/src/main/java/conf/Routes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/Dao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/Dao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
     </list>
     <ignored path="ninja-service.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ApplicationControllerIntegrationTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApplicationControllerIntegrationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="647">
@@ -99,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="188" column="21" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
+            <state relative-caret-position="582">
+              <caret line="191" column="47" selection-start-line="191" selection-start-column="47" selection-end-line="191" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -155,8 +140,8 @@
         <option value="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -174,18 +159,7 @@
     </option>
   </component>
   <component name="MavenProjectNavigator">
-    <treeState>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="ninja-service" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-    </treeState>
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="-29" />
@@ -1410,7 +1384,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475626130200</updated>
-      <workItem from="1475626131897" duration="97128000" />
+      <workItem from="1475626131897" duration="97692000" />
     </task>
     <servers />
   </component>
@@ -1418,8 +1392,8 @@
     <history-entry file="ApplicationControllerIntegrationTest_testDestroyUser - 2016.10.10 at 09h 39m 37s.xml">
       <configuration name="ApplicationControllerIntegrationTest.testDestroyUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ApplicationControllerIntegrationTest_testRetrieveUserDoesNotExist - 2016.10.07 at 00h 46m 51s.xml">
-      <configuration name="ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" configurationId="JUnit" />
+    <history-entry file="ApplicationControllerIntegrationTest_testDestroyUser - 2016.10.10 at 09h 55m 04s.xml">
+      <configuration name="ApplicationControllerIntegrationTest.testDestroyUser" configurationId="JUnit" />
     </history-entry>
     <history-entry file="UserDaoImplTest_testDestroyUserExists - 2016.10.10 at 09h 10m 56s.xml">
       <configuration name="UserDaoImplTest.testDestroyUserExists" configurationId="JUnit" />
@@ -1447,7 +1421,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97128000" />
+    <option name="totallyTimeSpent" value="97692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-29" width="1600" height="929" extended-state="6" />
@@ -1875,18 +1849,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="188" column="21" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="647">
           <caret line="132" column="54" selection-start-line="132" selection-start-column="54" selection-end-line="132" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="191" column="47" selection-start-line="191" selection-start-column="47" selection-end-line="191" selection-end-column="47" />
           <folding />
         </state>
       </provider>
