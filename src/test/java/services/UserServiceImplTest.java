@@ -55,7 +55,9 @@ public class UserServiceImplTest {
         doReturn(user).when(userDaoMock).create(user);
         userService = new UserServiceImpl(userDaoMock);
 
-        assertEquals(user, userService.createUser(user));
+        Optional<User> userOptional = userService.createUser(user);
+        assertTrue(userOptional.isPresent());
+        assertEquals(user, userOptional.get());
         verify(userDaoMock).create(user);
     }
 
@@ -125,5 +127,15 @@ public class UserServiceImplTest {
         } catch (Exception e) {
             assertTrue(e instanceof ServiceException);
         }
+    }
+
+    @Test
+    public void testDestroyUserExists() {
+        User user = new User("bob", "bob@gmail.com");
+        doReturn(true).when(userDaoMock).destroy(user);
+        userService = new UserServiceImpl(userDaoMock);
+
+        assertTrue(userService.destroyUser(user));
+        verify(userDaoMock).destroy(user);
     }
 }

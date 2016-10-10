@@ -17,4 +17,6 @@ public interface Dao<T extends Model> {
     T create(T model) throws PersistenceException;
 
     T update(T model) throws PersistenceException;
+
+    boolean destroy(T model) throws PersistenceException;
 }

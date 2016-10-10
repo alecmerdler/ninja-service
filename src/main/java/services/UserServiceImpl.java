@@ -69,4 +69,18 @@ public class UserServiceImpl implements UserService {
 
         return ofNullable(user);
     }
+
+    public boolean destroyUser(User user) throws ServiceException {
+        if (user == null) {
+            throw new ServiceException("User should not be null");
+        }
+        boolean status = false;
+        try {
+            status = userDao.destroy(user);
+        } catch (PersistenceException pe) {
+            throw new ServiceException(pe.getMessage());
+        }
+
+        return status;
+    }
 }

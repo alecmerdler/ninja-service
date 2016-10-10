@@ -18,6 +18,7 @@ package controllers;
 
 
 import com.google.inject.Injector;
+import com.mashape.unirest.http.Unirest;
 import dao.UserDao;
 import models.User;
 import ninja.NinjaTest;
@@ -127,6 +128,8 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
 
     @Test
     public void testDestroyUser() {
-
+        User user = new User("bob", "bob@gmail.com");
+        userDao.create(user);
+        Unirest.delete(usersUrl + "/" + user.getId());
     }
 }

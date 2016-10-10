@@ -20,4 +20,6 @@ public interface UserService {
     Optional<User> retrieveUserByUsername(String username) throws ServiceException;
 
     Optional<User> updateUser(User user) throws ServiceException;
+
+    boolean destroyUser(User user) throws ServiceException;
 }

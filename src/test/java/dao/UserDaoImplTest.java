@@ -138,4 +138,13 @@ public class UserDaoImplTest {
 
         verify(entityManagerMock).flush();
     }
+
+    @Test
+    public void testDestroyUserExists() {
+        User user = new User("bob", "bob@gmail.com");
+        doNothing().when(entityManagerMock).flush();
+        userDao.destroy(user);
+
+        verify(entityManagerMock).remove(user);
+    }
 }

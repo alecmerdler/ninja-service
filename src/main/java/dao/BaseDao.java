@@ -63,4 +63,16 @@ public class BaseDao<T extends Model> implements Dao<T> {
 
         return model;
     }
+
+    @Transactional
+    public boolean destroy(T model) throws PersistenceException {
+        if (model == null) {
+            throw new PersistenceException("Model should not be null");
+        }
+        EntityManager entityManager = entityManagerProvider.get();
+        entityManager.remove(model);
+        entityManager.flush();
+
+        return true;
+    }
 }

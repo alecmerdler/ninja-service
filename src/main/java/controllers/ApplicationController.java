@@ -28,9 +28,7 @@ import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
 import services.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @Singleton
@@ -82,5 +80,21 @@ public class ApplicationController {
         }
 
         return Results.json().render(user);
+    }
+
+    public Result destroyUser(@PathParam("id") int id) {
+
+        Optional<User> userOptional = userService.retrieveUserById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            userService.destroyUser(user);
+        }
+        else {
+            throw new BadRequestException("User with given ID does not exist");
+        }
+
+        return Results.json()
+                .render("status", "resource removed")
+                .status(204);
     }
 }
