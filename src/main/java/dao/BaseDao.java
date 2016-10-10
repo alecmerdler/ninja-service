@@ -34,7 +34,7 @@ public class BaseDao<T extends Model> implements Dao<T> {
     }
 
     @UnitOfWork
-    public List<T> findByProperty(String property, String value) {
+    public List<T> findByProperty(String property, String value) throws PersistenceException {
         EntityManager entityManager = entityManagerProvider.get();
 
         Query query = entityManager.createQuery("select t from " + modelName + " as t where t." + property + " = :value")
@@ -49,6 +49,17 @@ public class BaseDao<T extends Model> implements Dao<T> {
         }
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.persist(model);
+
+        return model;
+    }
+
+    @Transactional
+    public T update(T model) throws PersistenceException {
+        if (model == null) {
+            throw new PersistenceException("Model should not be null");
+        }
+        EntityManager entityManager = entityManagerProvider.get();
+        entityManager.flush();
 
         return model;
     }

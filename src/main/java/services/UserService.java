@@ -13,9 +13,11 @@ public interface UserService {
 
     List<User> listAllUsers();
 
-    User createUser(User user) throws ServiceException;
+    Optional<User> createUser(User user) throws ServiceException;
 
     Optional<User> retrieveUserById(int id) throws ServiceException;
 
     Optional<User> retrieveUserByUsername(String username) throws ServiceException;
+
+    Optional<User> updateUser(User user) throws ServiceException;
 }

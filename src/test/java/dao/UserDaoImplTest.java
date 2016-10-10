@@ -129,4 +129,13 @@ public class UserDaoImplTest {
             assertTrue(e instanceof PersistenceException);
         }
     }
+
+    @Test
+    public void testUpdateUserExists() {
+        User user = new User("bob", "bob@gmail.com");
+        doNothing().when(entityManagerMock).flush();
+        userDao.update(user);
+
+        verify(entityManagerMock).flush();
+    }
 }

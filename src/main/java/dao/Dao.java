@@ -12,5 +12,9 @@ public interface Dao<T extends Model> {
 
     List<T> findAll();
 
+    List<T> findByProperty(String property, String value) throws PersistenceException;
+
     T create(T model) throws PersistenceException;
+
+    T update(T model) throws PersistenceException;
 }

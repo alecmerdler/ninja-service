@@ -28,15 +28,19 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
-    public User createUser(User user) throws ServiceException {
+    public Optional<User> createUser(User user) throws ServiceException {
+        User createdUser;
+
         if (user == null) {
             throw new ServiceException("User should not be null");
         }
         try {
-            return (User) userDao.create(user);
+            createdUser = (User) userDao.create(user);
         } catch (PersistenceException pe) {
-            throw new ServiceException("Could not persist given User");
+            throw new ServiceException(pe.getMessage());
         }
+
+        return Optional.ofNullable(createdUser);
     }
 
     public Optional<User> retrieveUserById(int id) {
@@ -48,6 +52,19 @@ public class UserServiceImpl implements UserService {
         User user = null;
         if (usersWithUsername.size() > 0) {
             user = usersWithUsername.get(0);
+        }
+
+        return ofNullable(user);
+    }
+
+    public Optional<User> updateUser(User user) throws ServiceException {
+        if (user == null) {
+            throw new ServiceException("User should not be null");
+        }
+        try {
+            user = userDao.update(user);
+        } catch (PersistenceException pe) {
+            throw new ServiceException(pe.getMessage());
         }
 
         return ofNullable(user);

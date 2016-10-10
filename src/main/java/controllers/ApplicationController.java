@@ -25,6 +25,7 @@ import ninja.Results;
 import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
 import ninja.params.PathParam;
+import org.hibernate.service.spi.ServiceException;
 import services.UserService;
 
 import java.util.ArrayList;
@@ -59,7 +60,12 @@ public class ApplicationController {
     }
 
     public Result createUser(Context context, User user) {
-        userService.createUser(user);
+        try {
+            userService.createUser(user);
+        } catch (ServiceException se) {
+            throw new BadRequestException(se.getMessage());
+        }
+
 
         return Results.json().render(user);
     }

@@ -6,8 +6,10 @@ import org.hibernate.service.spi.ServiceException;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.persistence.PersistenceException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -80,6 +82,48 @@ public class UserServiceImplTest {
 
     @Test
     public void testRetrieveUserByUsernameExists() {
+        User user = new User("bob", "bob@gmail.com");
+        List<User> usersWithUsername = new ArrayList<>();
+        usersWithUsername.add(user);
+        doReturn(usersWithUsername).when(userDaoMock).findByUsername(user.getUsername());
+        userService = new UserServiceImpl(userDaoMock);
 
+        assertTrue(userService.retrieveUserByUsername(user.getUsername()).isPresent());
+        verify(userDaoMock).findByUsername(user.getUsername());
+    }
+
+    @Test
+    public void testUpdateUserNull() {
+        userService = new UserServiceImpl(userDaoMock);
+        try {
+            userService.updateUser(null);
+            fail("Should throw exception");
+        } catch (Exception e) {
+            assertTrue(e instanceof ServiceException);
+        }
+    }
+
+    @Test
+    public void testUpdateUserExists() {
+        User user = new User("bob", "bob@gmail.com");
+        doReturn(user).when(userDaoMock).update(user);
+        userService = new UserServiceImpl(userDaoMock);
+
+        assertTrue(userService.updateUser(user).isPresent());
+        verify(userDaoMock).update(user);
+    }
+
+    @Test
+    public void testUpdateUserDoesNotExist() {
+        User user = new User("bob", "bob@gmail.com");
+        doThrow(new PersistenceException("User with given ID does not exist")).when(userDaoMock).update(user);
+        userService = new UserServiceImpl(userDaoMock);
+
+        try {
+            Optional<User> userOptional = userService.updateUser(user);
+            fail("Should throw exception");
+        } catch (Exception e) {
+            assertTrue(e instanceof ServiceException);
+        }
     }
 }
