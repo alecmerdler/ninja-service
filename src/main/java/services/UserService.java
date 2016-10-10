@@ -15,7 +15,7 @@ public interface UserService {
 
     Optional<User> createUser(User user) throws ServiceException;
 
-    Optional<User> retrieveUserById(int id) throws ServiceException;
+    Optional<User> retrieveUserById(Long id) throws ServiceException;
 
     Optional<User> retrieveUserByUsername(String username) throws ServiceException;
 

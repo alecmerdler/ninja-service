@@ -95,6 +95,28 @@ public class UserServiceImplTest {
     }
 
     @Test
+    public void testRetrieveUserByIdDoesNotExist() {
+        Long id = new Long(1);
+        doReturn(new ArrayList<>()).when(userDaoMock).findById(id);
+        userService = new UserServiceImpl(userDaoMock);
+
+        assertFalse(userService.retrieveUserById(id).isPresent());
+        verify(userDaoMock).findById(id);
+    }
+
+    @Test
+    public void testRetrieveUserByIdExists() {
+        User user = new User("bob", "bob@gmail.com");
+        List<User> usersWithUsername = new ArrayList<>();
+        usersWithUsername.add(user);
+        doReturn(usersWithUsername).when(userDaoMock).findById(user.getId());
+        userService = new UserServiceImpl(userDaoMock);
+
+        assertTrue(userService.retrieveUserById(user.getId()).isPresent());
+        verify(userDaoMock).findById(user.getId());
+    }
+
+    @Test
     public void testUpdateUserNull() {
         userService = new UserServiceImpl(userDaoMock);
         try {

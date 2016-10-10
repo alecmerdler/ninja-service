@@ -21,8 +21,13 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
     }
 
     @UnitOfWork
-    public List<User> findByUsername(String username) {
+    public List<User> findByUsername(String username) throws PersistenceException {
        return super.findByProperty("username", username);
+    }
+
+    @UnitOfWork
+    public List<User> findById(Long id) {
+        return super.findByProperty("id", id);
     }
 
     @Transactional

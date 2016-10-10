@@ -99,8 +99,8 @@ public class ApplicationController {
         }
 
         Result result = Results.json()
-                .status(204)
-                .render("status", "resource removed");
+                .status(204);
+
         return result;
     }
 }

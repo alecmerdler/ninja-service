@@ -43,8 +43,16 @@ public class UserServiceImpl implements UserService {
         return Optional.ofNullable(createdUser);
     }
 
-    public Optional<User> retrieveUserById(int id) {
-        return empty();
+    public Optional<User> retrieveUserById(Long id) {
+        if (id = null) {
+            throw new ServiceException("ID should not be null");
+        }
+        try {
+            List<User> usersWithId = userDao.findById(Long id);
+        }
+
+
+        return
     }
 
     public Optional<User> retrieveUserByUsername(String username) {

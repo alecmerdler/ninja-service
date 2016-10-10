@@ -12,7 +12,7 @@ public interface Dao<T extends Model> {
 
     List<T> findAll();
 
-    List<T> findByProperty(String property, String value) throws PersistenceException;
+    List<T> findByProperty(String property, Object value) throws PersistenceException;
 
     T create(T model) throws PersistenceException;
 

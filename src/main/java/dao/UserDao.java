@@ -2,6 +2,7 @@ package dao;
 
 import models.User;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
@@ -9,5 +10,7 @@ import java.util.List;
  */
 public interface UserDao extends Dao<User> {
 
-    List<User> findByUsername(String username);
+    List<User> findByUsername(String username) throws PersistenceException;
+
+    List<User> findById(Long id) throws PersistenceException;
 }

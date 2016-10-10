@@ -78,7 +78,7 @@ public class UserDaoImplTest {
     }
 
     @Test
-    public void findByUsernameOneUser() {
+    public void testFindByUsernameOneUser() {
         List<User> users = new ArrayList<>();
         users.add(new User("bob", "bob@gmail.com"));
         doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.username = :value");
@@ -86,6 +86,39 @@ public class UserDaoImplTest {
         doReturn(users).when(queryMock).getResultList();
 
         assertEquals(users.size(), userDao.findByUsername(users.get(0).getUsername()).size());
+    }
+
+    @Test
+    public void testFindByIdNoUsers() {
+        Long id = new Long(1);
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.id = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", id);
+        doReturn(new ArrayList<>()).when(queryMock).getResultList();
+
+        assertEquals(0, userDao.findById(id).size());
+    }
+
+    @Test
+    public void testFindByIdManyUsers() {
+        List<User> users = new ArrayList<>();
+        users.add(new User("bob", "bob@gmail.com"));
+        users.add(new User("sally", "sally@gmail.com"));
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.id = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", users.get(0).getId());
+        doReturn(users).when(queryMock).getResultList();
+
+        assertEquals(users.size(), userDao.findById(users.get(0).getId()).size());
+    }
+
+    @Test
+    public void testFindByIdOneUser() {
+        List<User> users = new ArrayList<>();
+        users.add(new User("bob", "bob@gmail.com"));
+        doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.id = :value");
+        doReturn(queryMock).when(queryMock).setParameter("value", users.get(0).getId());
+        doReturn(users).when(queryMock).getResultList();
+
+        assertEquals(users.size(), userDao.findById(users.get(0).getId()).size());
     }
 
     @Test

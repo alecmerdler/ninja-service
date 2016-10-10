@@ -136,8 +136,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         try {
             HttpResponse<JsonNode> response = Unirest.delete(usersUrl + "/" + user.getUsername())
                     .asJson();
-//            assertEquals(204, response.getStatus());
-            assertEquals(1, response.getBody().toString());
+            assertEquals(204, response.getStatus());
         } catch (UnirestException ue) {
             fail(ue.getMessage());
         }
