@@ -57,9 +57,22 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     }
 
     @Test
-    public void testRootGET() {
+    public void testRoot() {
         try {
             HttpResponse<JsonNode> response = Unirest.get(getServerAddress())
+                    .asJson();
+
+            assertEquals(200, response.getStatus());
+            assertEquals("service-1", response.getBody().getObject().get("name"));
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testHealthcheck() {
+        try {
+            HttpResponse<JsonNode> response = Unirest.get(getServerAddress() + "/healthcheck")
                     .asJson();
 
             assertEquals(200, response.getStatus());

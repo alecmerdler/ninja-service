@@ -88,6 +88,10 @@
         <groupId>org.ninjaframework</groupId>
         <artifactId>ninja-maven-plugin</artifactId>
         <version>${ninja.version}</version>
+        <configuration>
+          <useDefaultExcludes>true</useDefaultExcludes>
+          <port>8080</port>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>

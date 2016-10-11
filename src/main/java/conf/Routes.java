@@ -29,7 +29,8 @@ public class Routes implements ApplicationRoutes {
 
     @Override
     public void init(Router router) {
-        router.GET().route("/").with(Results.json().render("status", "running"));
+        router.GET().route("/").with(Results.json().render("name", "service-1"));
+        router.GET().route("/healthcheck").with(Results.json().render("status", "running"));
 
         router.GET().route(usersUrl).with(ApplicationController.class, "listUsers");
         router.POST().route(usersUrl).with(ApplicationController.class, "createUser");
