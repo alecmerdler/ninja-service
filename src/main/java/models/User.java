@@ -1,8 +1,7 @@
 package models;
 
-import com.google.inject.Inject;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 /**
  * Created by alec on 10/4/16.
@@ -17,16 +16,20 @@ public class User extends Model {
     @Column(unique = true)
     private String email;
 
-    @Inject
     public User() {
         this.username = "";
         this.email = "";
     }
 
-    @Inject
     public User(String username, String email) {
         this.username = username;
         this.email = email;
+    }
+
+    public User(String username, String email, Long id) {
+        this.username = username;
+        this.email = email;
+        this.id = id;
     }
 
     public String getUsername() {

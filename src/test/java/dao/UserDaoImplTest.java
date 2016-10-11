@@ -101,8 +101,8 @@ public class UserDaoImplTest {
     @Test
     public void testFindByIdManyUsers() {
         List<User> users = new ArrayList<>();
-        users.add(new User("bob", "bob@gmail.com"));
-        users.add(new User("sally", "sally@gmail.com"));
+        users.add(new User("bob", "bob@gmail.com", new Long(1)));
+        users.add(new User("sally", "sally@gmail.com", new Long(7)));
         doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.id = :value");
         doReturn(queryMock).when(queryMock).setParameter("value", users.get(0).getId());
         doReturn(users).when(queryMock).getResultList();
@@ -113,7 +113,7 @@ public class UserDaoImplTest {
     @Test
     public void testFindByIdOneUser() {
         List<User> users = new ArrayList<>();
-        users.add(new User("bob", "bob@gmail.com"));
+        users.add(new User("bob", "bob@gmail.com", new Long(1)));
         doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.id = :value");
         doReturn(queryMock).when(queryMock).setParameter("value", users.get(0).getId());
         doReturn(users).when(queryMock).getResultList();
@@ -174,7 +174,9 @@ public class UserDaoImplTest {
 
     @Test
     public void testDestroyUserExists() {
-        User user = new User("bob", "bob@gmail.com");
+        User user = new User("bob", "bob@gmail.com", new Long(1));
+        doReturn(user).when(entityManagerMock).find(User.class, user.getId());
+        doNothing().when(entityManagerMock).remove(user);
         doNothing().when(entityManagerMock).flush();
         userDao.destroy(user);
 

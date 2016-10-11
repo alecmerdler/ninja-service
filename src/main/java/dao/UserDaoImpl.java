@@ -27,7 +27,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     @UnitOfWork
     public List<User> findById(Long id) {
-        return super.findByProperty("id", id);
+        return super.findByProperty("id", id.longValue());
     }
 
     @Transactional

@@ -9,7 +9,6 @@ import javax.persistence.PersistenceException;
 import java.util.List;
 import java.util.Optional;
 
-import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 
 /**
@@ -43,23 +42,35 @@ public class UserServiceImpl implements UserService {
         return Optional.ofNullable(createdUser);
     }
 
-    public Optional<User> retrieveUserById(Long id) {
-        if (id = null) {
-            throw new ServiceException("ID should not be null");
+    public Optional<User> retrieveUserByUsername(String username) {
+        if (username == null) {
+            throw new ServiceException("Username should not be null");
         }
+        User user = null;
         try {
-            List<User> usersWithId = userDao.findById(Long id);
+            List<User> usersWithUsername = userDao.findByUsername(username);
+            if (usersWithUsername.size() > 0) {
+                user = usersWithUsername.get(0);
+            }
+        } catch (PersistenceException pe) {
+            throw new ServiceException(pe.getMessage());
         }
 
-
-        return
+        return ofNullable(user);
     }
 
-    public Optional<User> retrieveUserByUsername(String username) {
-        List<User> usersWithUsername = userDao.findByUsername(username);
+    public Optional<User> retrieveUserById(Long id) {
+        if (id == null) {
+            throw new ServiceException("ID should not be null");
+        }
         User user = null;
-        if (usersWithUsername.size() > 0) {
-            user = usersWithUsername.get(0);
+        try {
+            List<User> usersWithId = userDao.findById(id);
+            if (usersWithId.size() > 0) {
+                user = usersWithId.get(0);
+            }
+        } catch (PersistenceException pe) {
+            throw new ServiceException(pe.getMessage());
         }
 
         return ofNullable(user);

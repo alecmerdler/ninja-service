@@ -70,9 +70,8 @@ public class ApplicationController {
         return json().render(user);
     }
 
-    public Result retrieveUser(@PathParam("id") int id) {
+    public Result retrieveUser(@PathParam("id") Long id) {
         User user;
-
         Optional<User> userOptional = userService.retrieveUserById(id);
         if (userOptional.isPresent()) {
             user = userOptional.get();

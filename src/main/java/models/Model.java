@@ -13,7 +13,7 @@ public abstract class Model {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private Long id;
+    protected Long id;
 
     public Model() {
 
@@ -21,5 +21,9 @@ public abstract class Model {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -106,7 +106,7 @@ public class UserServiceImplTest {
 
     @Test
     public void testRetrieveUserByIdExists() {
-        User user = new User("bob", "bob@gmail.com");
+        User user = new User("bob", "bob@gmail.com", new Long(1));
         List<User> usersWithUsername = new ArrayList<>();
         usersWithUsername.add(user);
         doReturn(usersWithUsername).when(userDaoMock).findById(user.getId());
