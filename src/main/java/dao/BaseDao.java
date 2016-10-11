@@ -24,10 +24,10 @@ public class BaseDao<T extends Model> implements Dao<T> {
     public BaseDao(Provider<EntityManager> entityManagerProvider, String modelName, Class entityType) {
         this.entityManagerProvider = entityManagerProvider;
         this.modelName = modelName;
-        // Get the generic class type at runtime: http://blog.xebia.com/acessing-generic-types-at-runtime-in-java/
         this.entityType = entityType;
     }
 
+    @Override
     @UnitOfWork
     public List<T> findAll() {
         EntityManager entityManager = entityManagerProvider.get();
@@ -36,6 +36,7 @@ public class BaseDao<T extends Model> implements Dao<T> {
                 .getResultList();
     }
 
+    @Override
     @UnitOfWork
     public List<T> findByProperty(String property, Object value) throws PersistenceException {
         EntityManager entityManager = entityManagerProvider.get();
@@ -45,6 +46,7 @@ public class BaseDao<T extends Model> implements Dao<T> {
         return query.getResultList();
     }
 
+    @Override
     @Transactional
     public T create(T model) throws PersistenceException {
         if (model == null) {
@@ -56,6 +58,7 @@ public class BaseDao<T extends Model> implements Dao<T> {
         return model;
     }
 
+    @Override
     @Transactional
     public T update(T model) throws PersistenceException {
         if (model == null) {
@@ -68,6 +71,7 @@ public class BaseDao<T extends Model> implements Dao<T> {
         return model;
     }
 
+    @Override
     @Transactional
     public boolean destroy(T model) throws PersistenceException {
         if (model == null) {

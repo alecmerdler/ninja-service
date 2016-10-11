@@ -20,16 +20,19 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         super(entityManagerProvider, User.class.getSimpleName(), User.class);
     }
 
+    @Override
     @UnitOfWork
     public List<User> findByUsername(String username) throws PersistenceException {
        return super.findByProperty("username", username);
     }
 
+    @Override
     @UnitOfWork
     public List<User> findById(Long id) {
         return super.findByProperty("id", id.longValue());
     }
 
+    @Override
     @Transactional
     public User create(User user) throws PersistenceException {
         if (user == null) {

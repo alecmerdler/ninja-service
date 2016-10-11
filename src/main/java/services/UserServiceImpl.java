@@ -23,10 +23,12 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
+    @Override
     public List<User> listAllUsers() {
         return userDao.findAll();
     }
 
+    @Override
     public Optional<User> createUser(User user) throws ServiceException {
         User createdUser;
 
@@ -42,6 +44,7 @@ public class UserServiceImpl implements UserService {
         return Optional.ofNullable(createdUser);
     }
 
+    @Override
     public Optional<User> retrieveUserByUsername(String username) {
         if (username == null) {
             throw new ServiceException("Username should not be null");
@@ -59,6 +62,7 @@ public class UserServiceImpl implements UserService {
         return ofNullable(user);
     }
 
+    @Override
     public Optional<User> retrieveUserById(Long id) {
         if (id == null) {
             throw new ServiceException("ID should not be null");
@@ -76,6 +80,7 @@ public class UserServiceImpl implements UserService {
         return ofNullable(user);
     }
 
+    @Override
     public Optional<User> updateUser(User user) throws ServiceException {
         if (user == null) {
             throw new ServiceException("User should not be null");
@@ -89,6 +94,7 @@ public class UserServiceImpl implements UserService {
         return ofNullable(user);
     }
 
+    @Override
     public boolean destroyUser(User user) throws ServiceException {
         if (user == null) {
             throw new ServiceException("User should not be null");
