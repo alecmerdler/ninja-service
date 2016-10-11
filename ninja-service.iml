@@ -20,6 +20,8 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="dev_unit" />
+          <factory-entry name="h2" />
+          <factory-entry name="h2_test" />
           <factory-entry name="postgresql" />
           <factory-entry name="prod_unit" />
           <factory-entry name="production" />

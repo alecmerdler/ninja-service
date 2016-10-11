@@ -83,8 +83,8 @@ public class ApplicationController {
         return json().render(user);
     }
 
-    public Result destroyUser(@PathParam("username") String username) {
-        Optional<User> userOptional = userService.retrieveUserByUsername(username);
+    public Result destroyUser(@PathParam("id") Long id) {
+        Optional<User> userOptional = userService.retrieveUserById(id);
         if (userOptional.isPresent()) {
             try {
                 User user = userOptional.get();
@@ -96,7 +96,6 @@ public class ApplicationController {
         else {
             throw new BadRequestException("User with given username does not exist");
         }
-
         Result result = Results.json()
                 .status(204);
 

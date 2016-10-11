@@ -27,7 +27,6 @@ public class UserDaoImplTest {
     EntityManager entityManagerMock;
     Query queryMock;
 
-
     @Before
     public void beforeEach() {
         entityManagerMock = mock(EntityManager.class);

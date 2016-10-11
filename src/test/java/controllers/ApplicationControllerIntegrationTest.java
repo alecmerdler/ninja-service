@@ -55,7 +55,15 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
 
     @Test
     public void testRootGET() {
-        String response = ninjaTestBrowser.makeJsonRequest(getServerAddress());
+        try {
+            HttpResponse<JsonNode> response = Unirest.get(getServerAddress())
+                    .asJson();
+
+            assertEquals(200, response.getStatus());
+            assertEquals("running", response.getBody().getObject().get("status"));
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
     }
 
     @Test
@@ -63,6 +71,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         String response = ninjaTestBrowser.makeJsonRequest(usersUrl);
         try {
             List<User> users = objectMapper.readValue(response, new TypeReference<List<User>>(){});
+
             assertEquals(0, users.size());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
@@ -76,6 +85,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         String response = ninjaTestBrowser.makeJsonRequest(usersUrl + "?username=" + user.getUsername());
         try {
             List<User> usersWithSameUsername = objectMapper.readValue(response, new TypeReference<List<User>>(){});
+
             assertEquals(1, usersWithSameUsername.size());
             assertEquals(user.getEmail(), usersWithSameUsername.get(0).getEmail());
         } catch (IOException ioe) {
@@ -89,6 +99,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         String response = ninjaTestBrowser.makeJsonRequest(usersUrl + "?username=" + username);
         try {
             List<User> usersWithSameUsername = objectMapper.readValue(response, new TypeReference<List<User>>(){});
+
             assertEquals(0, usersWithSameUsername.size());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
@@ -101,6 +112,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         String response = ninjaTestBrowser.postJson(usersUrl, user);
         try {
             User createdUser = objectMapper.readValue(response, User.class);
+
             assertEquals(user.getUsername(), createdUser.getUsername());
         } catch (IOException ioe) {
             fail(ioe.getMessage());
@@ -113,6 +125,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         String response = ninjaTestBrowser.makeJsonRequest(usersUrl + "/" + id);
         try {
             Map<String, String> responseMap = objectMapper.readValue(response, new TypeReference<Map<String, String>>(){});
+
             assertEquals("User with given ID does not exist", responseMap.get("error"));
         } catch (IOException ioe) {
             fail(ioe.getMessage());
@@ -121,7 +134,18 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
 
     @Test
     public void testRetrieveUserExists() {
+        User user = new User("bob", "bob@gmail.com");
+        userDao.create(user);
+        try {
+            HttpResponse<JsonNode> response = Unirest.get(usersUrl + "/" + user.getId())
+                    .asJson();
+            User responseUser = objectMapper.readValue(response.getBody().toString(), User.class);
 
+            assertEquals(200, response.getStatus());
+            assertEquals(user.getUsername(), responseUser.getUsername());
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
     }
 
     @Test
@@ -134,8 +158,9 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         User user = new User("bob", "bob@gmail.com");
         userDao.create(user);
         try {
-            HttpResponse<JsonNode> response = Unirest.delete(usersUrl + "/" + user.getUsername())
+            HttpResponse<JsonNode> response = Unirest.delete(usersUrl + "/" + user.getId())
                     .asJson();
+
             assertEquals(204, response.getStatus());
         } catch (UnirestException ue) {
             fail(ue.getMessage());
