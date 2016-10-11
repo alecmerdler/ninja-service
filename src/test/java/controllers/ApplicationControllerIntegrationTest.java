@@ -29,6 +29,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.junit.Before;
 import org.junit.Test;
+import utils.UnirestObjectMapper;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,6 +52,8 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         objectMapper = new ObjectMapper();
         apiUrl = getServerAddress() + "api/v1";
         usersUrl = apiUrl + "/users";
+
+        Unirest.setObjectMapper(new UnirestObjectMapper());
     }
 
     @Test
@@ -149,8 +152,25 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     }
 
     @Test
-    public void testUpdateUser() {
+    public void testUpdateUserExists() {
+        User user = new User("bob", "bob@gmail.com");
+        userDao.create(user);
+        String newEmail = "bob@yahoo.com";
+        user.setEmail(newEmail);
+        try {
+            HttpResponse<JsonNode> response = Unirest.put(usersUrl + "/" + user.getId())
+                    .header("accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .body(user)
+                    .asJson();
+            User responseUser = objectMapper.readValue(response.getBody().toString(), User.class);
 
+            assertEquals(200, response.getStatus());
+            assertEquals(user.getId(), responseUser.getId());
+            assertEquals(newEmail, responseUser.getEmail());
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
     }
 
     @Test

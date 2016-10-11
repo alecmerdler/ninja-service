@@ -18,7 +18,6 @@ package conf;
 
 
 import controllers.ApplicationController;
-import ninja.AssetsController;
 import ninja.Results;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
@@ -30,17 +29,13 @@ public class Routes implements ApplicationRoutes {
 
     @Override
     public void init(Router router) {
-
         router.GET().route("/").with(Results.json().render("status", "running"));
 
         router.GET().route(usersUrl).with(ApplicationController.class, "listUsers");
         router.POST().route(usersUrl).with(ApplicationController.class, "createUser");
         router.GET().route(usersUrl + "/{id}").with(ApplicationController.class, "retrieveUser");
+        router.PUT().route(usersUrl + "/{id}").with(ApplicationController.class, "updateUser");
         router.DELETE().route(usersUrl + "/{id}").with(ApplicationController.class, "destroyUser");
-
-        // Assets (pictures / javascript)
-        router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController.class, "serveWebJars");
-        router.GET().route("/assets/{fileName: .*}").with(AssetsController.class, "serveStatic");
     }
 
 }

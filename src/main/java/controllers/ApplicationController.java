@@ -21,14 +21,15 @@ import com.google.inject.Singleton;
 import models.User;
 import ninja.Context;
 import ninja.Result;
-import ninja.Results;
 import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
 import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
 import services.UserService;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import static ninja.Results.json;
 
@@ -80,7 +81,26 @@ public class ApplicationController {
             throw new BadRequestException("User with given ID does not exist");
         }
 
-        return json().render(user);
+        return json()
+                .render(user);
+    }
+
+    public Result updateUser(@PathParam("id") Long id, Context context, User user) {
+        Optional<User> userOptional = userService.retrieveUserById(id);
+        if (userOptional.isPresent()) {
+            try {
+                userService.updateUser(user);
+            } catch (ServiceException se) {
+                throw new BadRequestException(se.getMessage());
+            }
+        }
+        else {
+            throw new BadRequestException("User with given ID does not exist");
+        }
+
+        return json()
+                .status(200)
+                .render(user);
     }
 
     public Result destroyUser(@PathParam("id") Long id) {
@@ -96,9 +116,8 @@ public class ApplicationController {
         else {
             throw new BadRequestException("User with given username does not exist");
         }
-        Result result = Results.json()
-                .status(204);
 
-        return result;
+        return json()
+                .status(204);
     }
 }
