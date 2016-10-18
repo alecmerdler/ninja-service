@@ -25,11 +25,10 @@ import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
 import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
+import services.MessageService;
 import services.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static ninja.Results.json;
 
@@ -38,10 +37,20 @@ import static ninja.Results.json;
 public class ApplicationController {
 
     private final UserService userService;
+    private final MessageService messageService;
 
     @Inject
     public ApplicationController(UserService userService) {
         this.userService = userService;
+        this.messageService = new MessageService();
+    }
+
+    public Result sendMessage() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "message sent");
+        messageService.sendMessage();
+
+        return json().render(response);
     }
 
     public Result listUsers(@Param("username") String username) {
