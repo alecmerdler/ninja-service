@@ -25,7 +25,7 @@ import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
 import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
-import services.MessageService;
+import services.MessageServiceMQTT;
 import services.UserService;
 
 import java.util.*;
@@ -37,18 +37,25 @@ import static ninja.Results.json;
 public class ApplicationController {
 
     private final UserService userService;
-    private final MessageService messageService;
+    private final MessageServiceMQTT messageService;
 
     @Inject
     public ApplicationController(UserService userService) {
         this.userService = userService;
-        this.messageService = new MessageService();
+        this.messageService = new MessageServiceMQTT();
     }
 
     public Result sendMessage() {
+        String topic = "test";
+        Map<String, Object> message = new HashMap<>();
+        message.put("from", "service-2");
+        try {
+            messageService.sendMessage(topic, message);
+        } catch (Exception e) {
+            throw new BadRequestException(e.getMessage());
+        }
         Map<String, Object> response = new HashMap<>();
         response.put("status", "message sent");
-        messageService.sendMessage();
 
         return json().render(response);
     }
