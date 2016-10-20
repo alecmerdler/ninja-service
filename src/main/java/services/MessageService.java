@@ -2,6 +2,7 @@ package services;
 
 import rx.Observable;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Map;
  */
 public interface MessageService {
 
-    Observable<Map<String, Object>> getMessages() throws Exception;
+    Observable<List<Map<String, Object>>> getMessages() throws Exception;
 
     void sendMessage(String topic, Map<String, Object> message) throws Exception;
 }

@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eba78f-a1e3-45a3-b5cb-ea9e8f2f4401" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conf/Routes.java" afterPath="$PROJECT_DIR$/src/main/java/conf/Routes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/services/MessageService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" afterPath="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
     </list>
     <ignored path="ninja-service.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,32 +31,20 @@
       <file leaf-file-name="Routes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/conf/Routes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+            <state relative-caret-position="323">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+            <state relative-caret-position="525">
+              <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="695">
-              <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-              <folding>
-                <element signature="docComment;class#UserServiceImpl#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,22 +53,15 @@
       <file leaf-file-name="MessageServiceMQTT.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
-              <folding>
-                <element signature="docComment;class#MessageServiceMQTT#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+            <state relative-caret-position="916">
+              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;class#MessageServiceMQTT#0" expanded="false" />
+                <element signature="e#2604#2605#0" expanded="true" />
+                <element signature="e#2666#2667#0" expanded="true" />
+                <element signature="e#2739#2740#0" expanded="true" />
+                <element signature="e#2815#2816#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,18 +106,18 @@
         <option value="$PROJECT_DIR$/src/main/java/models/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Model.java" />
         <option value="$PROJECT_DIR$/src/test/java/utils/UnirestObjectMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/conf/application.conf" />
         <option value="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/conf/Routes.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/MessageService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
+        <option value="$PROJECT_DIR$/src/main/java/conf/Routes.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
       </list>
     </option>
   </component>
@@ -1399,7 +1381,7 @@
       <workItem from="1475626131897" duration="107279000" />
       <workItem from="1476158538787" duration="34874000" />
       <workItem from="1476823276159" duration="2685000" />
-      <workItem from="1476997109571" duration="5786000" />
+      <workItem from="1476997109571" duration="8656000" />
     </task>
     <servers />
   </component>
@@ -1436,7 +1418,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150624000" />
+    <option name="totallyTimeSpent" value="153494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
@@ -1712,6 +1694,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1857,48 +1840,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conf/Routes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+        <state relative-caret-position="323">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+        <state relative-caret-position="916">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="docComment;class#MessageServiceMQTT#0" expanded="false" />
+            <element signature="e#2604#2605#0" expanded="true" />
+            <element signature="e#2666#2667#0" expanded="true" />
+            <element signature="e#2739#2740#0" expanded="true" />
+            <element signature="e#2815#2816#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        <state relative-caret-position="1105">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
           <folding>
             <element signature="docComment;class#UserServiceImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

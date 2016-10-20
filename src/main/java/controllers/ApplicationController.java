@@ -25,6 +25,7 @@ import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
 import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
+import rx.schedulers.Schedulers;
 import services.MessageServiceMQTT;
 import services.UserService;
 
@@ -43,6 +44,23 @@ public class ApplicationController {
     public ApplicationController(UserService userService) {
         this.userService = userService;
         this.messageService = new MessageServiceMQTT();
+    }
+
+    public Result listMessages() {
+        final List<Map<String, Object>> messages = new ArrayList<>();
+        try {
+            messageService.getMessages()
+                    .subscribeOn(Schedulers.computation())
+                    .subscribe((List<Map<String, Object>> newMessages) -> {
+                        for (Map<String, Object> message : newMessages) {
+                            messages.add(message);
+                        }
+                    });
+        } catch (Exception e) {
+            throw new BadRequestException(e.getMessage());
+        }
+
+        return json().render(messages);
     }
 
     public Result sendMessage() {

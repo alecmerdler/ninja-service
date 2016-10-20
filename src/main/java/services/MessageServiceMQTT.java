@@ -7,8 +7,9 @@ import com.google.inject.Inject;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import rx.Observable;
-import rx.Subscriber;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -21,8 +22,9 @@ public class MessageServiceMQTT implements MessageService {
     private final String brokerUrl = "tcp://52.25.184.170:1884";
     private final String clientId = UUID.randomUUID().toString();
     private IMqttClient client;
-    private MemoryPersistence persistence;
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final MemoryPersistence persistence;
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final List<Map<String, Object>> messages = new ArrayList<>();
 
     @Inject
     public MessageServiceMQTT(IMqttClient client, MemoryPersistence persistence) {
@@ -32,24 +34,19 @@ public class MessageServiceMQTT implements MessageService {
 
     public MessageServiceMQTT() {
         this.persistence = new MemoryPersistence();
+        final String topic = "test";
         try {
             this.client = new MqttClient(brokerUrl, clientId, persistence);
+            subscribe(topic);
         } catch (MqttException me) {
             me.printStackTrace();
         }
     }
 
-    public Observable<Map<String, Object>> getMessages() throws Exception {
-        final String topic = "test";
-        return Observable.create((subscriber) -> {
-            try {
-                client.setCallback(new SubscribeCallback(subscriber));
-                client.connect();
-                client.subscribe(topic);
-            } catch (MqttException me) {
-                me.printStackTrace();
-            }
-        });
+    public Observable<List<Map<String, Object>>> getMessages() throws Exception {
+        System.out.println(messages);
+
+        return Observable.just(messages);
     }
 
     public void sendMessage(String topic, Map<String, Object> message) throws Exception {
@@ -63,31 +60,41 @@ public class MessageServiceMQTT implements MessageService {
         }
     }
 
+    private void subscribe(String topic) {
+        try {
+            if (!client.isConnected()) {
+                client.setCallback(new SubscribeCallback());
+                client.connect();
+            }
+            client.subscribe(topic);
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
+    }
+
     private String formatMessage(Map<String, Object> message) throws JsonProcessingException {
         return objectMapper.writeValueAsString(message);
     }
 
     private class SubscribeCallback implements MqttCallback {
 
-        private Subscriber<? super Map<String, Object>> subscriber;
         private ObjectMapper objectMapper;
 
-        SubscribeCallback(Subscriber<? super Map<String, Object>> subscriber) {
-            this.subscriber = subscriber;
+        SubscribeCallback() {
             this.objectMapper = new ObjectMapper();
         }
 
         @Override
         public void connectionLost(Throwable cause) {
-
+            System.out.println("Connection to MQTT broker lost");
         }
 
         @Override
         public void messageArrived(String topic, MqttMessage message) {
             try {
-                byte[] bytes = message.getPayload();
                 Map<String, Object> messageMap = objectMapper.readValue(message.getPayload(), new TypeReference<Map<String, Object>>(){});
-                subscriber.onNext(messageMap);
+                messages.add(messageMap);
+                System.out.println(messages);
             } catch (Exception e) {
                 e.printStackTrace();
             }
