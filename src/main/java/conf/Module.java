@@ -18,17 +18,24 @@ package conf;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
+import com.mashape.unirest.http.Unirest;
 import dao.UserDao;
 import dao.UserDaoImpl;
+import services.MessageService;
+import services.MessageServiceMQTT;
 import services.UserService;
 import services.UserServiceImpl;
+import utils.UnirestObjectMapper;
 
 @Singleton
 public class Module extends AbstractModule {
 
     protected void configure() {
+        Unirest.setObjectMapper(new UnirestObjectMapper());
+
         bind(UserDao.class).to(UserDaoImpl.class);
         bind(UserService.class).to(UserServiceImpl.class);
+        bind(MessageService.class).to(MessageServiceMQTT.class);
     }
 
 }

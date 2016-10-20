@@ -26,7 +26,7 @@ import ninja.params.Param;
 import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
 import rx.schedulers.Schedulers;
-import services.MessageServiceMQTT;
+import services.MessageService;
 import services.UserService;
 
 import java.util.*;
@@ -38,12 +38,12 @@ import static ninja.Results.json;
 public class ApplicationController {
 
     private final UserService userService;
-    private final MessageServiceMQTT messageService;
+    private final MessageService messageService;
 
     @Inject
-    public ApplicationController(UserService userService) {
+    public ApplicationController(UserService userService, MessageService messageService) {
         this.userService = userService;
-        this.messageService = new MessageServiceMQTT();
+        this.messageService = messageService;
     }
 
     public Result listMessages() {
