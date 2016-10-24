@@ -19,6 +19,7 @@ public class MessageServiceMQTT implements MessageService {
 
     // TODO: Move to configuration file
     private final String brokerUrl = "tcp://52.25.184.170:1884";
+//    private final String brokerUrl = "tcp://engageable.net:1884";
     private final String clientId = UUID.randomUUID().toString();
     private IMqttClient client;
     private final MemoryPersistence persistence;
