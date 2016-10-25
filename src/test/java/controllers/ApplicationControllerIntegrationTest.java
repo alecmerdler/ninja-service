@@ -21,7 +21,6 @@ import com.google.inject.Injector;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import dao.UserDao;
 import models.User;
 import ninja.NinjaTest;
@@ -35,9 +34,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class ApplicationControllerIntegrationTest extends NinjaTest {
 
@@ -198,8 +195,8 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
                     .asJson();
 
             assertEquals(204, response.getStatus());
-        } catch (UnirestException ue) {
-            fail(ue.getMessage());
+        } catch (Exception e) {
+            fail(e.getMessage());
         }
     }
 }

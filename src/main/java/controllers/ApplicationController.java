@@ -155,7 +155,7 @@ public class ApplicationController {
             }
         }
         else {
-            throw new BadRequestException("User with given username does not exist");
+            throw new BadRequestException("User with given id does not exist");
         }
 
         return json()

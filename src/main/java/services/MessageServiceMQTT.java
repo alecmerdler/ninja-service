@@ -32,10 +32,12 @@ public class MessageServiceMQTT implements MessageService {
         }
     }
 
+    @Override
     public Observable<List<Map<String, Object>>> getMessages() throws Exception {
         return Observable.just(messages);
     }
 
+    @Override
     public Observable<Map<String, Object>> subscribe(String topic) {
         return Observable.create((subscriber) -> {
             try {
@@ -48,6 +50,7 @@ public class MessageServiceMQTT implements MessageService {
         });
     }
 
+    @Override
     public void sendMessage(String topic, Map<String, Object> message) throws Exception {
         try {
             if (!client.isConnected()) {
