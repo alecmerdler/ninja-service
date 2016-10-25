@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class ApplicationControllerIntegrationTest extends NinjaTest {
@@ -123,7 +124,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     }
 
     @Test
-    public void testCreateUser() {
+    public void testCreateUserValid() {
         User user = new User("bob", "bob@bob.com");
         String response = ninjaTestBrowser.postJson(usersUrl, user);
         try {
@@ -141,10 +142,10 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
         try {
             HttpResponse<JsonNode> response = Unirest.get(usersUrl + "/" + id)
                     .asJson();
-            Map<String, String> responseBody = objectMapper.readValue(response.getBody().toString(), new TypeReference<Map<String, String>>(){});
+            Map<String, Object> responseBody = objectMapper.readValue(response.getBody().toString(), new TypeReference<Map>(){});
 
-            assertEquals(400, response.getStatus());
-            assertEquals("User with given ID does not exist", responseBody.get("error"));
+            assertEquals(404, response.getStatus());
+            assertTrue(responseBody.isEmpty());
         } catch (Exception e) {
             fail(e.getMessage());
         }

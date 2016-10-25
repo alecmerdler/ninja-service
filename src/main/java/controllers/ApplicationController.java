@@ -25,6 +25,7 @@ import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
 import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
+import org.json.JSONObject;
 import rx.schedulers.Schedulers;
 import services.MessageService;
 import services.UserService;
@@ -109,18 +110,21 @@ public class ApplicationController {
     }
 
     public Result retrieveUser(@PathParam("id") Long id) {
-        User user;
-        Optional<User> userOptional = userService.retrieveUserById(id);
-        if (userOptional.isPresent()) {
-            user = userOptional.get();
-        }
-        else {
-            throw new BadRequestException("User with given ID does not exist");
+        Result response = json()
+                .status(404)
+                .render(new JSONObject());
+        try {
+            Optional<User> userOptional = userService.retrieveUserById(id);
+            if (userOptional.isPresent()) {
+                response = json()
+                        .status(200)
+                        .render(userOptional.get());
+            }
+        } catch (ServiceException se) {
+            throw new BadRequestException(se.getMessage());
         }
 
-        return json()
-                .status(200)
-                .render(user);
+        return response;
     }
 
     public Result updateUser(@PathParam("id") Long id, Context context, User user) {
