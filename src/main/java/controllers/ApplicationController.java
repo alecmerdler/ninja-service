@@ -46,11 +46,20 @@ public class ApplicationController {
         this.messageService = messageService;
     }
 
+    public Result initialize(Context context, Map<String, Object> options) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "initialized");
+
+        return json()
+                .status(200)
+                .render(response);
+    }
+
     public Result listMessages() {
         final List<Map<String, Object>> messages = new ArrayList<>();
         try {
             messageService.getMessages()
-                    .subscribeOn(Schedulers.computation())
+                    .subscribeOn(Schedulers.newThread())
                     .subscribe((List<Map<String, Object>> newMessages) -> {
                         for (Map<String, Object> message : newMessages) {
                             messages.add(message);
@@ -60,22 +69,9 @@ public class ApplicationController {
             throw new BadRequestException(e.getMessage());
         }
 
-        return json().render(messages);
-    }
-
-    public Result sendMessage() {
-        String topic = "test";
-        Map<String, Object> message = new HashMap<>();
-        message.put("from", "service-2");
-        try {
-            messageService.sendMessage(topic, message);
-        } catch (Exception e) {
-            throw new BadRequestException(e.getMessage());
-        }
-        Map<String, Object> response = new HashMap<>();
-        response.put("status", "message sent");
-
-        return json().render(response);
+        return json()
+                .status(200)
+                .render(messages);
     }
 
     public Result listUsers(@Param("username") String username) {
@@ -91,18 +87,25 @@ public class ApplicationController {
             users = userService.listAllUsers();
         }
 
-        return json().render(users);
+        return json()
+                .status(200)
+                .render(users);
     }
 
     public Result createUser(Context context, User user) {
+        User createdUser = null;
         try {
-            userService.createUser(user);
+            Optional<User> userOptional = userService.createUser(user);
+            if (userOptional.isPresent()) {
+                createdUser = userOptional.get();
+            }
         } catch (ServiceException se) {
             throw new BadRequestException(se.getMessage());
         }
 
-
-        return json().render(user);
+        return json()
+                .status(201)
+                .render(createdUser);
     }
 
     public Result retrieveUser(@PathParam("id") Long id) {
@@ -116,25 +119,24 @@ public class ApplicationController {
         }
 
         return json()
+                .status(200)
                 .render(user);
     }
 
     public Result updateUser(@PathParam("id") Long id, Context context, User user) {
-        Optional<User> userOptional = userService.retrieveUserById(id);
-        if (userOptional.isPresent()) {
-            try {
-                userService.updateUser(user);
-            } catch (ServiceException se) {
-                throw new BadRequestException(se.getMessage());
+        User updatedUser = null;
+        try {
+            Optional<User> userOptional = userService.updateUser(user);
+            if (userOptional.isPresent()) {
+                updatedUser = userOptional.get();
             }
-        }
-        else {
-            throw new BadRequestException("User with given ID does not exist");
+        } catch (ServiceException se) {
+            throw new BadRequestException(se.getMessage());
         }
 
         return json()
                 .status(200)
-                .render(user);
+                .render(updatedUser);
     }
 
     public Result destroyUser(@PathParam("id") Long id) {
@@ -143,8 +145,9 @@ public class ApplicationController {
             try {
                 User user = userOptional.get();
                 userService.destroyUser(user);
-            } catch (ServiceException se) {
-                throw new BadRequestException(se.getMessage());
+                messageService.sendMessage("users", createUserDestroyedMessage(user.getId()));
+            } catch (Exception e) {
+                throw new BadRequestException(e.getMessage());
             }
         }
         else {
@@ -153,5 +156,14 @@ public class ApplicationController {
 
         return json()
                 .status(204);
+    }
+
+    // FIXME: Move to service layer
+    private Map<String, Object> createUserDestroyedMessage(Long userId) {
+        Map<String, Object> message = new HashMap<>();
+        message.put("action", "destroy");
+        message.put("userId", userId);
+
+        return message;
     }
 }

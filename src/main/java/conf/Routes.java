@@ -31,9 +31,9 @@ public class Routes implements ApplicationRoutes {
     public void init(Router router) {
         router.GET().route("/").with(Results.json().render("name", "service-1"));
         router.GET().route("/healthcheck").with(Results.json().render("status", "running"));
+        router.POST().route("/initialize").with(ApplicationController.class, "initialize");
 
         router.GET().route("/messages").with(ApplicationController.class, "listMessages");
-        router.POST().route("/messages").with(ApplicationController.class, "sendMessage");
 
         router.GET().route(usersUrl).with(ApplicationController.class, "listUsers");
         router.POST().route(usersUrl).with(ApplicationController.class, "createUser");

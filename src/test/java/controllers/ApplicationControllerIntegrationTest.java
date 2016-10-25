@@ -138,13 +138,15 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     @Test
     public void testRetrieveUserDoesNotExist() {
         int id = 42;
-        String response = ninjaTestBrowser.makeJsonRequest(usersUrl + "/" + id);
         try {
-            Map<String, String> responseMap = objectMapper.readValue(response, new TypeReference<Map<String, String>>(){});
+            HttpResponse<JsonNode> response = Unirest.get(usersUrl + "/" + id)
+                    .asJson();
+            Map<String, String> responseBody = objectMapper.readValue(response.getBody().toString(), new TypeReference<Map<String, String>>(){});
 
-            assertEquals("User with given ID does not exist", responseMap.get("error"));
-        } catch (IOException ioe) {
-            fail(ioe.getMessage());
+            assertEquals(400, response.getStatus());
+            assertEquals("User with given ID does not exist", responseBody.get("error"));
+        } catch (Exception e) {
+            fail(e.getMessage());
         }
     }
 

@@ -62,7 +62,7 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void testCreateUserInvalidThrowsServiceException() {
+    public void testCreateUserInvalid() {
         userService = new UserServiceImpl(userDaoMock);
         try {
             userService.createUser(null);

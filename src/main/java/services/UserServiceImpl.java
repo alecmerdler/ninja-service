@@ -30,8 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> createUser(User user) throws ServiceException {
-        User createdUser;
-
+        final User createdUser;
         if (user == null) {
             throw new ServiceException("User should not be null");
         }
@@ -41,7 +40,7 @@ public class UserServiceImpl implements UserService {
             throw new ServiceException(pe.getMessage());
         }
 
-        return Optional.ofNullable(createdUser);
+        return ofNullable(createdUser);
     }
 
     @Override
