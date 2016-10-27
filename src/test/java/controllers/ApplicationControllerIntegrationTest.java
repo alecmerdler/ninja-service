@@ -61,7 +61,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
                     .asJson();
 
             assertEquals(200, response.getStatus());
-            assertEquals("service-1", response.getBody().getObject().get("name"));
+            assertEquals("user-microservice-ninja", response.getBody().getObject().get("name"));
         } catch (Exception e) {
             fail(e.getMessage());
         }
