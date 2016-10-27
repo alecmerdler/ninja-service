@@ -149,7 +149,7 @@ public class ApplicationController {
             try {
                 User user = userOptional.get();
                 userService.destroyUser(user);
-                messageService.sendMessage("users", createUserDestroyedMessage(user.getId()));
+                messageService.sendMessage("users/" + user.getId(), "destroy", new HashMap<>(), new HashMap<>());
             } catch (Exception e) {
                 throw new BadRequestException(e.getMessage());
             }
@@ -160,14 +160,5 @@ public class ApplicationController {
 
         return json()
                 .status(204);
-    }
-
-    // FIXME: Move to service layer
-    private Map<String, Object> createUserDestroyedMessage(Long userId) {
-        Map<String, Object> message = new HashMap<>();
-        message.put("action", "destroy");
-        message.put("userId", userId);
-
-        return message;
     }
 }
