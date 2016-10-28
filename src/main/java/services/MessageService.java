@@ -17,5 +17,5 @@ public interface MessageService {
 
     void sendMessage(String topic, String action, Map<String, Object> state, Map<String, Object> changes) throws Exception;
 
-    void shutdown() throws ServiceException;
+    void stop() throws ServiceException;
 }

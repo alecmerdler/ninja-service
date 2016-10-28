@@ -29,7 +29,7 @@ import utils.UnirestObjectMapper;
 
 @Singleton
 public class Module extends AbstractModule {
-
+    
     protected void configure() {
         Unirest.setObjectMapper(new UnirestObjectMapper());
 
