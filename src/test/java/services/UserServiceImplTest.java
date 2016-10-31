@@ -149,6 +149,7 @@ public class UserServiceImplTest {
             fail("Should throw exception");
         } catch (Exception e) {
             assertTrue(e instanceof ServiceException);
+            verify(userDaoMock).update(user);
         }
     }
 

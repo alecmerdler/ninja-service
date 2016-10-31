@@ -84,13 +84,14 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new ServiceException("User should not be null");
         }
+        final User updatedUser;
         try {
-            user = userDao.update(user);
+            updatedUser = userDao.update(user);
         } catch (PersistenceException pe) {
             throw new ServiceException(pe.getMessage());
         }
 
-        return ofNullable(user);
+        return ofNullable(updatedUser);
     }
 
     @Override

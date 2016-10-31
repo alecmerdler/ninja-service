@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eba78f-a1e3-45a3-b5cb-ea9e8f2f4401" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/services/MessageServiceMQTTTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conf/Module.java" afterPath="$PROJECT_DIR$/src/main/java/conf/Module.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/conf/application.conf" afterPath="$PROJECT_DIR$/src/main/java/conf/application.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/services/MessageService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" afterPath="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/models/Message.java" afterPath="$PROJECT_DIR$/src/main/java/models/Message.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
     </list>
     <ignored path="ninja-service.iws" />
@@ -44,46 +41,30 @@
       <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="148" column="85" selection-start-line="148" selection-start-column="85" selection-end-line="148" selection-end-column="85" />
+            <state relative-caret-position="-410">
+              <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageServiceMQTTTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/services/MessageServiceMQTTTest.java">
+      <file leaf-file-name="UserServiceImplTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="27" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#MessageServiceMQTTTest#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="646">
+              <caret line="151" column="45" selection-start-line="151" selection-start-column="45" selection-end-line="151" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageServiceMQTT.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-289">
-              <caret line="29" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+            <state relative-caret-position="-68">
+              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
               <folding>
-                <element signature="docComment;class#MessageServiceMQTT#0" expanded="false" />
-                <element signature="method#deliveryComplete#0;class#SubscribeCallback#0;class#MessageServiceMQTT#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Module.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/conf/Module.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="61" column="5" selection-start-line="48" selection-start-column="4" selection-end-line="61" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#UserServiceImpl#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -129,19 +110,19 @@
         <option value="$PROJECT_DIR$/src/test/java/utils/UnirestObjectMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/conf/Routes.java" />
         <option value="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/models/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/MessageService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/conf/application.conf" />
-        <option value="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/conf/Module.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
         <option value="$PROJECT_DIR$/src/test/java/services/MessageServiceMQTTTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -580,33 +561,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist">
-    <configuration default="false" name="ApplicationControllerIntegrationTest.testUpdateUserExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ninja-service" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.ApplicationControllerIntegrationTest" />
-      <option name="METHOD_NAME" value="testUpdateUserExists" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserServiceImplTest.testUpdateUserNull">
     <configuration default="false" name="ApplicationControllerIntegrationTest.testCreateUserValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -698,6 +653,32 @@
       <option name="PACKAGE_NAME" value="services" />
       <option name="MAIN_CLASS_NAME" value="services.MessageServiceMQTTTest" />
       <option name="METHOD_NAME" value="testGetMessagesNoneExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="UserServiceImplTest.testUpdateUserNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="user-microservice-ninja" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.UserServiceImplTest" />
+      <option name="METHOD_NAME" value="testUpdateUserNull" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1436,19 +1417,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Maven.Quickstart [ninja:run]" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testUpdateUserExists" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testCreateUserValid" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testCreateUserValid" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.UserServiceImplTest.testUpdateUserNull" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testCreateUserValid" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testUpdateUserExists" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.UserServiceImplTest.testUpdateUserNull" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testCreateUserValid" />
       </list>
     </recent_temporary>
   </component>
@@ -1480,14 +1461,11 @@
       <workItem from="1477430147771" duration="5237000" />
       <workItem from="1477594636578" duration="8802000" />
       <workItem from="1477812660449" duration="7747000" />
-      <workItem from="1477890696652" duration="4255000" />
+      <workItem from="1477890696652" duration="6202000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.11 at 00h 17m 47s.xml">
-      <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.11 at 00h 23m 13s.xml">
       <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
     </history-entry>
@@ -1515,9 +1493,12 @@
     <history-entry file="MessageServiceMQTTTest_testGetMessagesNoneExist - 2016.10.31 at 15h 21m 00s.xml">
       <configuration name="MessageServiceMQTTTest.testGetMessagesNoneExist" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UserServiceImplTest_testUpdateUserNull - 2016.10.31 at 16h 01m 01s.xml">
+      <configuration name="UserServiceImplTest.testUpdateUserNull" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218210000" />
+    <option name="totallyTimeSpent" value="220157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
@@ -1532,7 +1513,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988358" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21235521" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33764553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33764553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1890,19 +1871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#Message#0" expanded="false" />
-            <element signature="e#984#985#0" expanded="false" />
-            <element signature="e#1038#1039#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1939,47 +1907,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/conf/Module.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="185">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
           <folding>
-            <element signature="docComment;class#UserServiceImpl#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="148" column="85" selection-start-line="148" selection-start-column="85" selection-end-line="148" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/services/MessageServiceMQTTTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
+        <state relative-caret-position="321">
+          <caret line="28" column="5" selection-start-line="22" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#MessageServiceMQTTTest#0" expanded="false" />
+            <element signature="docComment;class#Message#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="29" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        <state relative-caret-position="712">
+          <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
           <folding>
             <element signature="docComment;class#MessageServiceMQTT#0" expanded="false" />
             <element signature="method#deliveryComplete#0;class#SubscribeCallback#0;class#MessageServiceMQTT#0" expanded="false" />
@@ -1987,13 +1938,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/conf/Module.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/services/MessageServiceMQTTTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="61" column="5" selection-start-line="48" selection-start-column="4" selection-end-line="61" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;class#MessageServiceMQTTTest#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-410">
+          <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+          <folding>
+            <element signature="docComment;class#UserServiceImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="151" column="45" selection-start-line="151" selection-start-column="45" selection-end-line="151" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
