@@ -17,25 +17,48 @@
 package conf;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.mashape.unirest.http.Unirest;
 import dao.UserDao;
 import dao.UserDaoImpl;
+import org.eclipse.paho.client.mqttv3.IMqttClient;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import services.MessageService;
 import services.MessageServiceMQTT;
 import services.UserService;
 import services.UserServiceImpl;
 import utils.UnirestObjectMapper;
 
+import java.util.UUID;
+
 @Singleton
 public class Module extends AbstractModule {
-    
+
+    @Override
     protected void configure() {
         Unirest.setObjectMapper(new UnirestObjectMapper());
 
         bind(UserDao.class).to(UserDaoImpl.class);
         bind(UserService.class).to(UserServiceImpl.class);
         bind(MessageService.class).to(MessageServiceMQTT.class);
+    }
+
+    @Provides
+    public IMqttClient provideMqttClient() {
+        IMqttClient mqttClient = null;
+        final String brokerUrl = "tcp://52.25.184.170:1884";
+        final String clientId = UUID.randomUUID().toString();
+        final MemoryPersistence persistence = new MemoryPersistence();
+        try {
+            mqttClient = new MqttClient(brokerUrl, clientId, persistence);
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
+
+        return mqttClient;
     }
 
 }

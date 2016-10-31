@@ -146,8 +146,7 @@ public class ApplicationController {
             try {
                 User user = userOptional.get();
                 userService.destroyUser(user);
-                messageService.sendMessage(new Message("users", user.getId(), "destroy",
-                                           new HashMap<>(), new HashMap<>()));
+                messageService.publish(new Message("users", user.getId(), "destroy", new HashMap<>(), new HashMap<>()));
             } catch (Exception e) {
                 throw new BadRequestException(e.getMessage());
             }

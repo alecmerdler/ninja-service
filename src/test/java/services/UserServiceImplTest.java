@@ -18,6 +18,7 @@ import static org.mockito.Mockito.*;
  * Created by alec on 10/6/16.
  */
 public class UserServiceImplTest {
+
     UserServiceImpl userService;
 
     // Mocks
