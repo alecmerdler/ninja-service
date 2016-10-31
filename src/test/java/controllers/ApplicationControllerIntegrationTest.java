@@ -150,8 +150,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
 
     @Test
     public void testRetrieveUserExists() {
-        User user = new User("bob", "bob@gmail.com");
-        userDao.create(user);
+        User user = userDao.create(new User("bob", "bob@gmail.com"));
         try {
             HttpResponse<JsonNode> response = Unirest.get(usersUrl + "/" + user.getId())
                     .asJson();
@@ -166,8 +165,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
 
     @Test
     public void testUpdateUserExists() {
-        User user = new User("bob", "bob@gmail.com");
-        userDao.create(user);
+        User user = userDao.create(new User("bob", "bob@gmail.com"));
         String newEmail = "bob@yahoo.com";
         user.setEmail(newEmail);
         try {
@@ -188,8 +186,7 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
 
     @Test
     public void testDestroyUserExists() {
-        User user = new User("bob", "bob@gmail.com");
-        userDao.create(user);
+        User user = userDao.create(new User("bob", "bob@gmail.com"));
         try {
             HttpResponse<JsonNode> response = Unirest.delete(usersUrl + "/" + user.getId())
                     .asJson();

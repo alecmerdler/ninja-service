@@ -131,7 +131,7 @@ public class ApplicationController {
             Optional<User> userOptional = userService.updateUser(user);
             if (userOptional.isPresent()) {
                 updatedUser = userOptional.get();
-                messageService.publish(new Message("users", user.getId(), "update"));
+                messageService.publish(new Message("users", id, "update"));
             }
         } catch (Exception e) {
             throw new BadRequestException(e.getMessage());

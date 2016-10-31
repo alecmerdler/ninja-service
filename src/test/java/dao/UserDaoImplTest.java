@@ -164,7 +164,7 @@ public class UserDaoImplTest {
 
     @Test
     public void testUpdateUserExists() {
-        User user = new User("bob", "bob@gmail.com");
+        User user = new User("bob", "bob@gmail.com", new Long(21));
         doReturn(user).when(entityManagerMock).merge(user);
         doNothing().when(entityManagerMock).flush();
         userDao.update(user);

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eba78f-a1e3-45a3-b5cb-ea9e8f2f4401" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/models/Message.java" afterPath="$PROJECT_DIR$/src/main/java/models/Message.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
     </list>
     <ignored path="ninja-service.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="ApplicationControllerIntegrationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1719">
-              <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+            <state relative-caret-position="253">
+              <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -41,30 +40,20 @@
       <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-410">
-              <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+            <state relative-caret-position="253">
+              <caret line="131" column="43" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceImplTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java">
+      <file leaf-file-name="UserDaoImplTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="151" column="45" selection-start-line="151" selection-start-column="45" selection-end-line="151" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+            <state relative-caret-position="661">
+              <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
               <folding>
-                <element signature="docComment;class#UserServiceImpl#0" expanded="false" />
+                <element signature="docComment;class#UserDaoImplTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -109,20 +98,20 @@
         <option value="$PROJECT_DIR$/src/main/java/models/Model.java" />
         <option value="$PROJECT_DIR$/src/test/java/utils/UnirestObjectMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/conf/Routes.java" />
-        <option value="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/MessageService.java" />
         <option value="$PROJECT_DIR$/src/main/java/conf/application.conf" />
         <option value="$PROJECT_DIR$/src/main/java/conf/Module.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
         <option value="$PROJECT_DIR$/src/test/java/services/MessageServiceMQTTTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Message.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
         <option value="$PROJECT_DIR$/src/test/java/services/UserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
       </list>
     </option>
   </component>
@@ -561,33 +550,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceImplTest.testUpdateUserNull">
-    <configuration default="false" name="ApplicationControllerIntegrationTest.testCreateUserValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ninja-service" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="controllers" />
-      <option name="MAIN_CLASS_NAME" value="controllers.ApplicationControllerIntegrationTest" />
-      <option name="METHOD_NAME" value="testCreateUserValid" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.ApplicationControllerIntegrationTest.testUpdateUserExists">
     <configuration default="false" name="ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -679,6 +642,32 @@
       <option name="PACKAGE_NAME" value="services" />
       <option name="MAIN_CLASS_NAME" value="services.UserServiceImplTest" />
       <option name="METHOD_NAME" value="testUpdateUserNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ApplicationControllerIntegrationTest.testUpdateUserExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="user-microservice-ninja" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.ApplicationControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="testUpdateUserExists" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1417,19 +1406,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Maven.Quickstart [ninja:run]" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testCreateUserValid" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.UserServiceImplTest.testUpdateUserNull" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceImplTest.testUpdateUserNull" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testUpdateUserExists" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserServiceImplTest.testUpdateUserNull" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testCreateUserValid" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testUpdateUserExists" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserServiceImplTest.testUpdateUserNull" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MessageServiceMQTTTest.testGetMessagesNoneExist" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testDestroyUserExists" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ApplicationControllerIntegrationTest.testRetrieveUserDoesNotExist" />
       </list>
     </recent_temporary>
   </component>
@@ -1461,17 +1450,11 @@
       <workItem from="1477430147771" duration="5237000" />
       <workItem from="1477594636578" duration="8802000" />
       <workItem from="1477812660449" duration="7747000" />
-      <workItem from="1477890696652" duration="6202000" />
+      <workItem from="1477890696652" duration="8534000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.11 at 00h 23m 13s.xml">
-      <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.11 at 00h 23m 45s.xml">
-      <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.11 at 00h 26m 09s.xml">
       <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
     </history-entry>
@@ -1479,6 +1462,12 @@
       <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.11 at 00h 27m 15s.xml">
+      <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.31 at 16h 46m 48s.xml">
+      <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationControllerIntegrationTest_testUpdateUserExists - 2016.10.31 at 16h 47m 41s.xml">
       <configuration name="ApplicationControllerIntegrationTest.testUpdateUserExists" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MessageServiceMQTTTest_testGetMessagesNoneExist - 2016.10.31 at 15h 02m 21s.xml">
@@ -1498,7 +1487,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220157000" />
+    <option name="totallyTimeSpent" value="222489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
@@ -1525,7 +1514,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31953427" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3182406" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2001287" sideWeight="0.50714284" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1553,13 +1542,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/com/mashape/unirest/unirest-java/1.4.9/unirest-java-1.4.9.jar!/com/mashape/unirest/request/HttpRequestWithBody.class</url>
-          <line>128</line>
+          <url>file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java</url>
+          <line>167</line>
           <properties />
-          <option name="timeStamp" value="108" />
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dao/BaseDao.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="114" />
+      <option name="time" value="116" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1782,14 +1777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/mashape/unirest/unirest-java/1.4.9/unirest-java-1.4.9.jar!/com/mashape/unirest/request/HttpRequestWithBody.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/Dao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1814,26 +1801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1923">
-          <caret line="34" column="61" selection-start-line="31" selection-start-column="8" selection-end-line="34" selection-end-column="61" />
-          <folding>
-            <element signature="docComment;class#UserDaoImplTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#User#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1842,13 +1809,6 @@
             <element signature="e#817#818#0" expanded="false" />
             <element signature="e#882#883#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1891,14 +1851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1719">
-          <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conf/application.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="678">
@@ -1912,7 +1864,7 @@
         <state relative-caret-position="185">
           <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1943,16 +1895,31 @@
         <state relative-caret-position="102">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;class#MessageServiceMQTTTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-410">
-          <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+        <state relative-caret-position="253">
+          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/mashape/unirest/unirest-java/1.4.9/unirest-java-1.4.9.jar!/com/mashape/unirest/request/HttpRequestWithBody.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1972,6 +1939,34 @@
         <state relative-caret-position="646">
           <caret line="151" column="45" selection-start-line="151" selection-start-column="45" selection-end-line="151" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="131" column="43" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding>
+            <element signature="docComment;class#User#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#UserDaoImplTest#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
