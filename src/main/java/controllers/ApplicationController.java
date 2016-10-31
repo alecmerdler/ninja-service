@@ -18,6 +18,7 @@ package controllers;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import models.Message;
 import models.User;
 import ninja.Context;
 import ninja.Result;
@@ -57,15 +58,11 @@ public class ApplicationController {
     }
 
     public Result listMessages() {
-        final List<Map<String, Object>> messages = new ArrayList<>();
+        final List<Message> messages = new ArrayList<>();
         try {
             messageService.getMessages()
                     .subscribeOn(Schedulers.newThread())
-                    .subscribe((List<Map<String, Object>> newMessages) -> {
-                        for (Map<String, Object> message : newMessages) {
-                            messages.add(message);
-                        }
-                    });
+                    .subscribe(messages::addAll);
         } catch (Exception e) {
             throw new BadRequestException(e.getMessage());
         }
@@ -149,7 +146,8 @@ public class ApplicationController {
             try {
                 User user = userOptional.get();
                 userService.destroyUser(user);
-                messageService.sendMessage("users/" + user.getId(), "destroy", new HashMap<>(), new HashMap<>());
+                messageService.sendMessage(new Message("users", user.getId(), "destroy",
+                                           new HashMap<>(), new HashMap<>()));
             } catch (Exception e) {
                 throw new BadRequestException(e.getMessage());
             }
