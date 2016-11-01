@@ -20,6 +20,7 @@ import static org.mockito.Mockito.*;
  * Created by alec on 10/4/16.
  */
 public class UserDaoImplTest {
+
     UserDaoImpl userDao;
 
     // Mocks
@@ -152,7 +153,6 @@ public class UserDaoImplTest {
         doReturn(new ArrayList<>()).doReturn(usersWithSameUsername).when(queryMock).getResultList();
         doReturn(queryMock).when(entityManagerMock).createQuery("select t from User as t where t.username = :value");
         doReturn(queryMock).when(queryMock).setParameter("value", username);
-
         try {
             userDao.create(firstUser);
             userDao.create(secondUser);

@@ -26,7 +26,6 @@ import ninja.exceptions.BadRequestException;
 import ninja.params.Param;
 import ninja.params.PathParam;
 import org.hibernate.service.spi.ServiceException;
-import org.json.JSONObject;
 import rx.schedulers.Schedulers;
 import services.MessageService;
 import services.UserService;
@@ -110,7 +109,7 @@ public class ApplicationController {
     public Result retrieveUser(@PathParam("id") Long id) {
         Result response = json()
                 .status(404)
-                .render(new JSONObject());
+                .render(new HashMap<>());
         try {
             Optional<User> userOptional = userService.retrieveUserById(id);
             if (userOptional.isPresent()) {
