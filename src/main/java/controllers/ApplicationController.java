@@ -95,7 +95,7 @@ public class ApplicationController {
             Optional<User> userOptional = userService.createUser(user);
             if (userOptional.isPresent()) {
                 createdUser = userOptional.get();
-                messageService.publish(new Message("users", createdUser.getId(), "create"));
+                messageService.publish(new Message("users", createdUser.getId(), "create", user.mapProperties(), user.mapProperties()));
             }
         } catch (Exception e) {
             throw new BadRequestException(e.getMessage());
@@ -130,7 +130,7 @@ public class ApplicationController {
             Optional<User> userOptional = userService.updateUser(user);
             if (userOptional.isPresent()) {
                 updatedUser = userOptional.get();
-                messageService.publish(new Message("users", id, "update"));
+                messageService.publish(new Message("users", id, "update", user.mapProperties(), user.mapProperties()));
             }
         } catch (Exception e) {
             throw new BadRequestException(e.getMessage());
