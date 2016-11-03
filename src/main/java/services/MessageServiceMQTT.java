@@ -61,11 +61,25 @@ public class MessageServiceMQTT implements MessageService {
             if (!client.isConnected()) {
                 client.connect();
             }
-            System.out.println(message.getTopic());
-            client.publish(message.getTopic(), new MqttMessage(objectMapper.writeValueAsString(message).getBytes()));
+            MqttMessage mqttMessage = new MqttMessage(objectMapper.writeValueAsString(message).getBytes());
+            mqttMessage.setQos(2);
+            client.publish(message.getTopic(), mqttMessage);
         } catch (MqttException me) {
             me.printStackTrace();
         }
+    }
+
+    @Override
+    public Observable<Message> request(String responseTopic, Message message) throws Exception {
+        return Observable.create((subscriber) -> {
+            try {
+                client.subscribe(responseTopic + "/+");
+                addSubscriberToTopic(responseTopic, subscriber);
+                publish(message);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override
@@ -105,12 +119,16 @@ public class MessageServiceMQTT implements MessageService {
         @Override
         public void messageArrived(String topic, MqttMessage mqttMessage) {
             try {
-                Message message = objectMapper.readValue(mqttMessage.getPayload(), Message.class);
-                messages.add(message);
-                for (Subscriber subscriber : subscribers.get(message.getResourceName())) {
-                    subscriber.onNext(message);
-                }
-                System.out.println(messages);
+                Message newMessage = objectMapper.readValue(mqttMessage.getPayload(), Message.class);
+                messages.add(newMessage);
+                Observable.from(subscribers.get(newMessage.getResourceName()))
+                        .subscribe((Subscriber subscriber) -> {
+                            subscriber.onNext(newMessage);
+                        });
+                // FIXME: Debugging
+                System.out.println("\n====================================================");
+                System.out.println(newMessage.getTopic() + ": " + newMessage.getAction());
+                System.out.println("====================================================");
             } catch (Exception e) {
                 e.printStackTrace();
             }
