@@ -185,6 +185,19 @@ public class ApplicationControllerIntegrationTest extends NinjaTest {
     }
 
     @Test
+    public void testDestroyUserDoesNotExist() {
+        Long id = new Long(43);
+        try {
+            HttpResponse<JsonNode> response = Unirest.delete(usersUrl + "/" + id)
+                    .asJson();
+
+            assertEquals(404, response.getStatus());
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
     public void testDestroyUserExists() {
         User user = userDao.create(new User("bob", "bob@gmail.com"));
         try {

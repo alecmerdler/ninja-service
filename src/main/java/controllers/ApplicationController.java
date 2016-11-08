@@ -142,21 +142,23 @@ public class ApplicationController {
     }
 
     public Result destroyUser(@PathParam("id") Long id) {
-        Optional<User> userOptional = userService.retrieveUserById(id);
-        if (userOptional.isPresent()) {
-            try {
+        Result response = json()
+                .status(404)
+                .render(new HashMap<>());
+        try {
+            Optional<User> userOptional = userService.retrieveUserById(id);
+            if (userOptional.isPresent()) {
                 User user = userOptional.get();
                 userService.destroyUser(user);
                 messageService.publish(new Message("users", user.getId(), "destroy"));
-            } catch (Exception e) {
-                throw new BadRequestException(e.getMessage());
+                response = json()
+                        .status(204)
+                        .render(new HashMap<>());
             }
-        }
-        else {
-            throw new BadRequestException("User with given id does not exist");
+        } catch (Exception e) {
+            throw new BadRequestException(e.getMessage());
         }
 
-        return json()
-                .status(204);
+        return response;
     }
 }
