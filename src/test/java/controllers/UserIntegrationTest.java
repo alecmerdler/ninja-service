@@ -47,6 +47,6 @@ public class UserIntegrationTest extends NinjaTest {
 
     @Test
     public void testDestroyUserPublishesMessage() {
-        
+
     }
 }
