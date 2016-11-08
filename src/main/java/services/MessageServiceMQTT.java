@@ -44,11 +44,11 @@ public class MessageServiceMQTT implements MessageService {
         return Observable.create((subscriber) -> {
             String wildcard = "";
             if (subscribeToAll) {
-                wildcard = "+";
+                wildcard = "/+";
             }
             try {
-                client.subscribe(topic + "/" + wildcard);
-                addSubscriberToTopic(topic, subscriber);
+                client.subscribe(topic + wildcard);
+                addSubscriberToTopic(topic + wildcard, subscriber);
             } catch (MqttException me) {
                 me.printStackTrace();
             }
@@ -74,7 +74,7 @@ public class MessageServiceMQTT implements MessageService {
         return Observable.create((subscriber) -> {
             try {
                 client.subscribe(responseTopic + "/+");
-                addSubscriberToTopic(responseTopic, subscriber);
+                addSubscriberToTopic(responseTopic + "/+", subscriber);
                 publish(message);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -117,18 +117,38 @@ public class MessageServiceMQTT implements MessageService {
         }
 
         @Override
-        public void messageArrived(String topic, MqttMessage mqttMessage) {
+        public void messageArrived(String mqttTopic, MqttMessage mqttMessage) {
             try {
                 Message newMessage = objectMapper.readValue(mqttMessage.getPayload(), Message.class);
                 messages.add(newMessage);
-                Observable.from(subscribers.get(newMessage.getResourceName()))
-                        .subscribe((Subscriber subscriber) -> {
-                            subscriber.onNext(newMessage);
+                // FIXME: Need better way to find and call registered subscribers
+                String[] incomingTopic = mqttTopic.split("/");
+
+                Observable.from(subscribers.entrySet())
+                        .filter((entry) -> {
+                            String[] topic = entry.getKey().split("/");
+                            boolean include = false;
+                            if (incomingTopic.length > topic.length) {
+                                include = false;
+                            }
+                            else {
+                                for (int i = 0; i < incomingTopic.length; i++) {
+                                    if (topic[i].equals("+")) {
+                                        include = true;
+                                    }
+                                    else {
+                                        include = topic[i].equals(incomingTopic[i]);
+                                    }
+                                }
+                            }
+
+                            return include;
+                        })
+                        .subscribe((entry) -> {
+                            for (Subscriber subscriber : entry.getValue()) {
+                                subscriber.onNext(newMessage);
+                            }
                         });
-                // FIXME: Debugging
-                System.out.println("\n====================================================");
-                System.out.println(newMessage.getTopic() + ": " + newMessage.getAction());
-                System.out.println("====================================================");
             } catch (Exception e) {
                 e.printStackTrace();
             }

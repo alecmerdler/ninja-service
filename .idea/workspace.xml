@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eba78f-a1e3-45a3-b5cb-ea9e8f2f4401" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/services/MessageService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/controllers/UserIntegrationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" afterPath="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
     </list>
     <ignored path="ninja-service.iws" />
@@ -25,20 +26,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UserIntegrationTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/controllers/UserIntegrationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="610">
+              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ApplicationControllerIntegrationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
+            <state relative-caret-position="2312">
               <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
+            <state relative-caret-position="833">
               <caret line="133" column="13" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
               <folding />
             </state>
@@ -49,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="712">
-              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#MessageServiceMQTT#0" expanded="false" />
                 <element signature="method#deliveryComplete#0;class#SubscribeCallback#0;class#MessageServiceMQTT#0" expanded="false" />
@@ -64,8 +77,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,7 +106,6 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/Dao.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/models/User.java" />
         <option value="$PROJECT_DIR$/src/test/java/utils/UnirestObjectMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -109,8 +121,11 @@
         <option value="$PROJECT_DIR$/src/test/java/dao/UserDaoImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/MessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Chef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java" />
+        <option value="$PROJECT_DIR$/src/test/java/controllers/UserIntegrationTest.java" />
       </list>
     </option>
   </component>
@@ -163,6 +178,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -521,13 +538,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../agbiz-env/AgBiz-Logic/AgBiz_Logic" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../meal-microservice-ninja" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
@@ -1450,7 +1465,8 @@
       <workItem from="1477594636578" duration="8802000" />
       <workItem from="1477812660449" duration="7747000" />
       <workItem from="1477890696652" duration="8534000" />
-      <workItem from="1478028816019" duration="9171000" />
+      <workItem from="1478028816019" duration="10600000" />
+      <workItem from="1478467463426" duration="2482000" />
     </task>
     <servers />
   </component>
@@ -1487,7 +1503,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231660000" />
+    <option name="totallyTimeSpent" value="235571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
@@ -1561,20 +1577,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/ninjaframework/ninja-servlet/5.8.0/ninja-servlet-5.8.0.jar!/ninja/servlet/NinjaServletDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/inject/guice/4.0/guice-4.0.jar!/com/google/inject/internal/InjectorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
@@ -1918,38 +1920,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="289">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        <state relative-caret-position="219">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#User#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#MessageService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Chef.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/services/MessageServiceMQTT.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="712">
-          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MessageServiceMQTT#0" expanded="false" />
             <element signature="method#deliveryComplete#0;class#SubscribeCallback#0;class#MessageServiceMQTT#0" expanded="false" />
@@ -1959,9 +1951,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ApplicationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
+        <state relative-caret-position="833">
           <caret line="133" column="13" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ApplicationControllerIntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2312">
+          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/controllers/UserIntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
